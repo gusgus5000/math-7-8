@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold text-center mb-8 text-blue-900">
           Math Study Guide
@@ -58,5 +61,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
   )
 }
