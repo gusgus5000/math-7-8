@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix for math input on mobile */
+@media (max-width: 640px) {
+  .katex {
+    font-size: 1.1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Hide navigation and interactive elements */
+  nav, 
+  .no-print, 
+  button, 
+  .math-keypad,
+  a[href^="/"]:not(.print-link),
+  .bg-gradient-to-b {
+    display: none !important;
+  }
+  
+  /* Page breaks */
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  /* Clean up styling for print */
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+  
+  .shadow-lg, 
+  .shadow-xl,
+  .shadow {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  /* Ensure content fits on page */
+  .container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Show problem answers for print */
+  .print-answer {
+    display: block !important;
+    margin-top: 1em;
+    font-style: italic;
+  }
+}

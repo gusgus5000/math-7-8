@@ -1,0 +1,21 @@
+{
+  "name": "Math 7-8 Study Guide",
+  "short_name": "Math 7-8",
+  "description": "Interactive mathematics learning platform for 7th and 8th grade students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "kids"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

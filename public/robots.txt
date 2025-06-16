@@ -1,0 +1,7 @@
+# Robots.txt for Math 7-8 Study Guide
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: /sitemap.xml
