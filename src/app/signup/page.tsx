@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
+import { getAuthErrorMessage, validateEmail, validatePassword } from '@/lib/auth-errors'
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -29,8 +30,27 @@ export default function SignupPage() {
     e.preventDefault()
     setError(null)
 
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      setError('Please enter a valid email address')
+      return
+    }
+
+    // Validate password
+    const passwordValidation = validatePassword(formData.password)
+    if (!passwordValidation.isValid) {
+      setError(passwordValidation.error!)
+      return
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match')
+      return
+    }
+
+    // Validate name
+    if (!formData.fullName.trim()) {
+      setError('Please enter your full name')
       return
     }
 
@@ -44,33 +64,27 @@ export default function SignupPage() {
         options: {
           data: {
             full_name: formData.fullName,
-            grade_level: formData.gradeLevel,
+            grade_level: parseInt(formData.gradeLevel),
           },
         },
       })
 
       if (signUpError) {
-        setError(signUpError.message)
+        setError(getAuthErrorMessage(signUpError))
       } else if (authData.user) {
-        // Create profile in the database
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert({
-            id: authData.user.id,
-            email: formData.email,
-            full_name: formData.fullName,
-            grade_level: parseInt(formData.gradeLevel),
-          })
-
-        if (profileError) {
-          console.error('Profile creation error:', profileError)
+        // Profile is created automatically by database trigger
+        // Check if email confirmation is required
+        if (authData.user.identities && authData.user.identities.length === 0) {
+          // Email confirmation required
+          router.push('/verify-email')
+        } else {
+          // No email confirmation required or already confirmed
+          router.push('/dashboard')
         }
-
-        router.push('/dashboard')
         router.refresh()
       }
     } catch (err) {
-      setError('An unexpected error occurred')
+      setError(getAuthErrorMessage(err))
     } finally {
       setLoading(false)
     }

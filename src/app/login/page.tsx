@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
+import { getAuthErrorMessage, validateEmail } from '@/lib/auth-errors'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -16,6 +17,19 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
+    
+    // Validate email
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address')
+      return
+    }
+    
+    // Validate password
+    if (!password || password.length < 1) {
+      setError('Please enter your password')
+      return
+    }
+    
     setLoading(true)
 
     try {
@@ -25,13 +39,13 @@ export default function LoginPage() {
       })
 
       if (error) {
-        setError(error.message)
+        setError(getAuthErrorMessage(error))
       } else {
         router.push('/dashboard')
         router.refresh()
       }
     } catch (err) {
-      setError('An unexpected error occurred')
+      setError(getAuthErrorMessage(err))
     } finally {
       setLoading(false)
     }
@@ -92,6 +106,12 @@ export default function LoginPage() {
               <p className="text-sm text-red-800">{error}</p>
             </div>
           )}
+
+          <div className="flex items-center justify-between">
+            <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-500">
+              Forgot your password?
+            </Link>
+          </div>
 
           <div>
             <button
