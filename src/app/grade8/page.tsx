@@ -1,118 +1,148 @@
 import Link from 'next/link'
 
-// Color mapping for static Tailwind classes
-const colorStyles = {
-  indigo: {
-    text: 'text-indigo-700',
-    bg: 'bg-indigo-100',
-    bgDark: 'bg-indigo-600',
-    bgHover: 'hover:bg-indigo-700'
-  },
-  blue: {
-    text: 'text-blue-700',
-    bg: 'bg-blue-100',
-    bgDark: 'bg-blue-600',
-    bgHover: 'hover:bg-blue-700'
-  },
-  green: {
-    text: 'text-green-700',
-    bg: 'bg-green-100',
-    bgDark: 'bg-green-600',
-    bgHover: 'hover:bg-green-700'
-  },
-  purple: {
-    text: 'text-purple-700',
-    bg: 'bg-purple-100',
-    bgDark: 'bg-purple-600',
-    bgHover: 'hover:bg-purple-700'
-  },
-  pink: {
-    text: 'text-pink-700',
-    bg: 'bg-pink-100',
-    bgDark: 'bg-pink-600',
-    bgHover: 'hover:bg-pink-700'
-  }
-}
-
-const grade8Topics = [
-  {
-    id: 'numbers',
-    title: 'Number System & Exponents',
-    description: 'Work with irrational numbers and integer exponents',
-    subtopics: ['Rational vs irrational numbers', 'Square roots', 'Cube roots', 'Scientific notation'],
-    color: 'indigo'
-  },
-  {
-    id: 'expressions',
-    title: 'Expressions & Equations',
-    description: 'Solve linear equations and work with exponents',
-    subtopics: ['Linear equations in one variable', 'Systems of linear equations', 'Integer exponents', 'Square and cube roots'],
-    color: 'blue'
-  },
-  {
-    id: 'functions',
-    title: 'Functions',
-    description: 'Understand and work with functions',
-    subtopics: ['Function notation', 'Linear functions', 'Rate of change', 'Initial value'],
-    color: 'green'
-  },
-  {
-    id: 'geometry',
-    title: 'Geometry',
-    description: 'Transformations, congruence, and the Pythagorean theorem',
-    subtopics: ['Transformations', 'Congruence', 'Similarity', 'Pythagorean theorem', 'Volume formulas'],
-    color: 'purple'
-  },
-  {
-    id: 'statistics',
-    title: 'Statistics & Probability',
-    description: 'Analyze bivariate data and understand associations',
-    subtopics: ['Scatter plots', 'Line of best fit', 'Two-way tables', 'Relative frequency'],
-    color: 'pink'
-  }
-]
-
-export default function Grade8() {
+export default function Grade8Page() {
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <Link href="/" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
-          ← Back to Home
-        </Link>
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center space-x-8">
+              <Link href="/" className="text-xl font-bold text-blue-600">
+                Math 7-8
+              </Link>
+              <Link href="/grade8" className="text-gray-900 font-medium">
+                Grade 8
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Grade 8 Mathematics</h1>
         
-        <h1 className="text-4xl font-bold mb-8 text-gray-900">Grade 8 Mathematics</h1>
-        
-        <div className="grid gap-6">
-          {grade8Topics.map((topic) => {
-            const styles = colorStyles[topic.color as keyof typeof colorStyles]
-            return (
-              <div key={topic.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h2 className={`text-2xl font-semibold mb-2 ${styles.text}`}>
-                      {topic.title}
-                    </h2>
-                    <p className="text-gray-600 mb-4">{topic.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {topic.subtopics.map((subtopic, index) => (
-                        <span key={index} className={`px-3 py-1 ${styles.bg} ${styles.text} rounded-full text-sm`}>
-                          {subtopic}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Link 
-                    href={`/grade8/${topic.id}`}
-                    className={`ml-4 px-4 py-2 ${styles.bgDark} text-white rounded ${styles.bgHover} transition-colors`}
-                  >
-                    Study →
-                  </Link>
-                </div>
-              </div>
-            )
-          })}
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* Linear Equations */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-blue-800 mb-4">Linear Equations & Functions</h2>
+            <p className="text-gray-600 mb-4">
+              Master linear relationships and their applications.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Slope and y-intercept</li>
+              <li>• Writing linear equations</li>
+              <li>• Graphing linear functions</li>
+              <li>• Applications of linear models</li>
+            </ul>
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              Start Learning
+            </button>
+          </div>
+
+          {/* Systems of Equations */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-green-800 mb-4">Systems of Equations</h2>
+            <p className="text-gray-600 mb-4">
+              Solve problems with multiple equations and variables.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Solving by graphing</li>
+              <li>• Substitution method</li>
+              <li>• Elimination method</li>
+              <li>• Real-world applications</li>
+            </ul>
+            <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+              Start Learning
+            </button>
+          </div>
+
+          {/* Transformations */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-purple-800 mb-4">Geometric Transformations</h2>
+            <p className="text-gray-600 mb-4">
+              Understand how shapes move and change in the coordinate plane.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Translations</li>
+              <li>• Rotations</li>
+              <li>• Reflections</li>
+              <li>• Dilations and similarity</li>
+            </ul>
+            <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+              Start Learning
+            </button>
+          </div>
+
+          {/* Data & Probability */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-red-800 mb-4">Data Analysis & Probability</h2>
+            <p className="text-gray-600 mb-4">
+              Analyze data patterns and calculate probabilities.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Scatter plots and trend lines</li>
+              <li>• Two-way tables</li>
+              <li>• Probability of compound events</li>
+              <li>• Statistical measures</li>
+            </ul>
+            <button className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+              Start Learning
+            </button>
+          </div>
+
+          {/* Exponents & Scientific Notation */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-indigo-800 mb-4">Exponents & Scientific Notation</h2>
+            <p className="text-gray-600 mb-4">
+              Work with very large and very small numbers efficiently.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Laws of exponents</li>
+              <li>• Scientific notation</li>
+              <li>• Operations with scientific notation</li>
+              <li>• Real-world applications</li>
+            </ul>
+            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+              Start Learning
+            </button>
+          </div>
+
+          {/* Pythagorean Theorem */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-orange-800 mb-4">Pythagorean Theorem</h2>
+            <p className="text-gray-600 mb-4">
+              Explore right triangles and their properties.
+            </p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• Understanding the theorem</li>
+              <li>• Finding missing sides</li>
+              <li>• Distance formula</li>
+              <li>• Real-world applications</li>
+            </ul>
+            <button className="mt-4 bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700">
+              Start Learning
+            </button>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 bg-green-50 rounded-lg p-8 text-center">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            Ready to Excel in Grade 8 Math?
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Join now to access comprehensive lessons, practice problems, and track your mastery of each topic.
+          </p>
+          <Link 
+            href="/signup" 
+            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700"
+          >
+            Start Your Journey
+          </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
