@@ -78,6 +78,12 @@ export default function DashboardPage() {
               <span className="text-gray-700">
                 Welcome, {profile?.full_name || user.email}!
               </span>
+              <Link
+                href="/settings"
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Settings
+              </Link>
               <button
                 onClick={handleSignOut}
                 className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
