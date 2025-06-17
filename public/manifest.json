@@ -1,7 +1,7 @@
 {
-  "name": "Math 7-8 Study Guide",
-  "short_name": "Math 7-8",
-  "description": "Interactive mathematics learning platform for 7th and 8th grade students",
+  "name": "MathMinds - Math Learning for Grades 7-8",
+  "short_name": "MathMinds",
+  "description": "Engaging mathematics learning platform for 7th and 8th grade students",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useAuth } from '@/components/AuthProvider'
 
 export default function PracticePage() {
+  const { user } = useAuth()
   const [answer, setAnswer] = useState('')
   const [feedback, setFeedback] = useState('')
   const [score, setScore] = useState(0)
@@ -37,8 +39,9 @@ export default function PracticePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
-              <Link href="/" className="text-xl font-bold text-blue-600">
-                Math 7-8
+              <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-blue-600">
+                <span className="text-2xl">🧠</span>
+                <span>MathMinds</span>
               </Link>
               <Link href="/practice" className="text-gray-900 font-medium">
                 Practice
@@ -92,26 +95,28 @@ export default function PracticePage() {
         </div>
 
         {/* Info Box */}
-        <div className="mt-8 bg-blue-50 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Try Our Full Practice Mode!
-          </h3>
-          <p className="text-gray-700 mb-4">
-            This is just a sample problem. Create a free account to access:
-          </p>
-          <ul className="space-y-2 text-gray-600 mb-4">
-            <li>• Hundreds of practice problems</li>
-            <li>• Problems sorted by topic and difficulty</li>
-            <li>• Detailed step-by-step solutions</li>
-            <li>• Progress tracking and performance analytics</li>
-          </ul>
-          <Link 
-            href="/signup" 
-            className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
-          >
-            Sign Up Free
-          </Link>
-        </div>
+        {!user && (
+          <div className="mt-8 bg-blue-50 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Try Our Full Practice Mode!
+            </h3>
+            <p className="text-gray-700 mb-4">
+              This is just a sample problem. Create a free account to access:
+            </p>
+            <ul className="space-y-2 text-gray-600 mb-4">
+              <li>• Hundreds of practice problems</li>
+              <li>• Problems sorted by topic and difficulty</li>
+              <li>• Detailed step-by-step solutions</li>
+              <li>• Progress tracking and performance analytics</li>
+            </ul>
+            <Link 
+              href="/signup" 
+              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+            >
+              Sign Up Free
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )

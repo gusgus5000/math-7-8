@@ -18,8 +18,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-blue-600">
-              Math 7-8 Study Guide
+            <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-blue-600">
+              <span className="text-2xl">🧠</span>
+              <span>MathMinds</span>
             </Link>
           </div>
           <div className="flex items-center space-x-4">

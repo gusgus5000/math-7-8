@@ -1,0 +1,92 @@
+
+> math-7-8@1.0.0 dev
+> next dev -p 3005
+
+  ▲ Next.js 14.2.30
+  - Local:        http://localhost:3005
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1171ms
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 514ms (144 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 2.9s (709 modules)
+ GET / 200 in 3179ms
+ ✓ Compiled in 327ms (341 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (100kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled /grade7 in 209ms (688 modules)
+ ✓ Compiled /login in 153ms (698 modules)
+ ✓ Compiled /dashboard in 152ms (704 modules)
+   Reload env: .env.local
+ ✓ Compiled in 271ms (848 modules)
+ ✓ Compiled /grade8 in 150ms (706 modules)
+ GET / 200 in 106ms
+ ✓ Compiled in 697ms (710 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /grade8 200 in 75ms
+ ✓ Compiled in 231ms (724 modules)
+ ✓ Compiled in 387ms (714 modules)
+ ✓ Compiled in 279ms (728 modules)
+ ✓ Compiled in 112ms (351 modules)
+ ✓ Compiled in 97ms (351 modules)
+ GET / 200 in 102ms
+ GET /grade8 200 in 26ms
+ ✓ Compiled /signup in 382ms (720 modules)
+ GET /signup 200 in 513ms
+ GET /login 200 in 27ms
+ GET /grade8 200 in 43ms
+ GET /grade7 200 in 20ms
+ GET /grade7 200 in 24ms
+ ✓ Compiled in 217ms (353 modules)
+ ✓ Compiled in 533ms (730 modules)
+ ✓ Compiled in 224ms (730 modules)
+ ✓ Compiled in 333ms (730 modules)
+ ✓ Compiled in 303ms (730 modules)
+ ✓ Compiled in 122ms (353 modules)
+ ✓ Compiled in 421ms (730 modules)
+ ✓ Compiled in 142ms (353 modules)
+ ✓ Compiled in 448ms (730 modules)
+ ✓ Compiled in 218ms (730 modules)
+ ✓ Compiled in 201ms (730 modules)
+ ○ Compiling /api/auth/signout ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ GET / 200 in 94ms
+ GET / 200 in 26ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ ✓ Compiled /login in 426ms (730 modules)
+ ✓ Compiled in 218ms (730 modules)
+ ✓ Compiled in 246ms (730 modules)
+ ○ Compiling /grade8/functions ...
+ ✓ Compiled /grade8/functions in 913ms (835 modules)

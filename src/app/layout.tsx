@@ -6,12 +6,12 @@ import AuthProvider from '@/components/AuthProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Math 7-8 Study Guide | Interactive Mathematics Learning Platform',
-  description: 'Interactive mathematics learning platform for 7th and 8th grade students. Features lessons, practice problems, and infinite practice mode with real-time feedback.',
-  keywords: 'math, mathematics, grade 7, grade 8, education, learning, practice problems, study guide',
+  title: 'MathMinds | Interactive Mathematics Learning for Grades 7-8',
+  description: 'MathMinds - Engaging mathematics learning platform for 7th and 8th grade students. Master algebra, geometry, and problem-solving with interactive lessons and real-time feedback.',
+  keywords: 'math, mathematics, grade 7, grade 8, education, learning, practice problems, study guide, MathMinds',
   authors: [{ name: 'Aiden' }],
   creator: 'Aiden',
-  publisher: 'Math 7-8 Study Guide',
+  publisher: 'MathMinds',
   robots: {
     index: true,
     follow: true,
@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Math 7-8 Study Guide',
-    description: 'Interactive mathematics learning platform for 7th and 8th grade students',
+    title: 'MathMinds - Math Learning for Grades 7-8',
+    description: 'Engaging mathematics learning platform for 7th and 8th grade students',
     url: 'https://math-7-8.vercel.app',
-    siteName: 'Math 7-8 Study Guide',
+    siteName: 'MathMinds',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Math 7-8 Study Guide',
-    description: 'Interactive mathematics learning platform for 7th and 8th grade students',
+    title: 'MathMinds - Math Learning for Grades 7-8',
+    description: 'Engaging mathematics learning platform for 7th and 8th grade students',
     creator: '@yourtwitterhandle',
   },
   verification: {

@@ -1,6 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import { useAuth } from '@/components/AuthProvider'
 
 export default function Grade7Page() {
+  const { user } = useAuth()
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -8,8 +13,9 @@ export default function Grade7Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
-              <Link href="/" className="text-xl font-bold text-blue-600">
-                Math 7-8
+              <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-blue-600">
+                <span className="text-2xl">🧠</span>
+                <span>MathMinds</span>
               </Link>
               <Link href="/grade7" className="text-gray-900 font-medium">
                 Grade 7
@@ -36,9 +42,9 @@ export default function Grade7Page() {
               <li>• Unit rates and best buys</li>
               <li>• Scale drawings and maps</li>
             </ul>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            <Link href="/grade7/ratios" className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Number System */}
@@ -53,9 +59,9 @@ export default function Grade7Page() {
               <li>• Rational numbers on the number line</li>
               <li>• Converting between fractions and decimals</li>
             </ul>
-            <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            <Link href="/grade7/numbers" className="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Expressions & Equations */}
@@ -70,9 +76,9 @@ export default function Grade7Page() {
               <li>• Solving one-step equations</li>
               <li>• Solving two-step equations</li>
             </ul>
-            <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+            <Link href="/grade7/expressions" className="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Geometry */}
@@ -87,27 +93,29 @@ export default function Grade7Page() {
               <li>• Surface area and volume</li>
               <li>• Constructions with compass and straightedge</li>
             </ul>
-            <button className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+            <Link href="/grade7/geometry" className="mt-4 inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
               Start Learning
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="mt-12 bg-blue-50 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            Ready to Track Your Progress?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Create a free account to save your progress, earn badges, and get personalized recommendations.
-          </p>
-          <Link 
-            href="/signup" 
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700"
-          >
-            Sign Up Free
-          </Link>
-        </div>
+        {!user && (
+          <div className="mt-12 bg-blue-50 rounded-lg p-8 text-center">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Ready to Track Your Progress?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Create a free account to save your progress, earn badges, and get personalized recommendations.
+            </p>
+            <Link 
+              href="/signup" 
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700"
+            >
+              Sign Up Free
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )

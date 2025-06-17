@@ -1,6 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import { useAuth } from '@/components/AuthProvider'
 
 export default function Grade8Page() {
+  const { user } = useAuth()
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -8,8 +13,9 @@ export default function Grade8Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
-              <Link href="/" className="text-xl font-bold text-blue-600">
-                Math 7-8
+              <Link href="/" className="flex items-center space-x-2 text-xl font-bold text-blue-600">
+                <span className="text-2xl">🧠</span>
+                <span>MathMinds</span>
               </Link>
               <Link href="/grade8" className="text-gray-900 font-medium">
                 Grade 8
@@ -36,9 +42,9 @@ export default function Grade8Page() {
               <li>• Graphing linear functions</li>
               <li>• Applications of linear models</li>
             </ul>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            <Link href="/grade8/functions" className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Systems of Equations */}
@@ -53,9 +59,9 @@ export default function Grade8Page() {
               <li>• Elimination method</li>
               <li>• Real-world applications</li>
             </ul>
-            <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            <Link href="/grade8/functions" className="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Transformations */}
@@ -70,9 +76,9 @@ export default function Grade8Page() {
               <li>• Reflections</li>
               <li>• Dilations and similarity</li>
             </ul>
-            <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+            <Link href="/grade8/geometry" className="mt-4 inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Data & Probability */}
@@ -87,9 +93,9 @@ export default function Grade8Page() {
               <li>• Probability of compound events</li>
               <li>• Statistical measures</li>
             </ul>
-            <button className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+            <Link href="/grade8/statistics" className="mt-4 inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Exponents & Scientific Notation */}
@@ -104,9 +110,9 @@ export default function Grade8Page() {
               <li>• Operations with scientific notation</li>
               <li>• Real-world applications</li>
             </ul>
-            <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+            <Link href="/grade8/numbers" className="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
               Start Learning
-            </button>
+            </Link>
           </div>
 
           {/* Pythagorean Theorem */}
@@ -121,27 +127,29 @@ export default function Grade8Page() {
               <li>• Distance formula</li>
               <li>• Real-world applications</li>
             </ul>
-            <button className="mt-4 bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700">
+            <Link href="/grade8/geometry" className="mt-4 inline-block bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700">
               Start Learning
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="mt-12 bg-green-50 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            Ready to Excel in Grade 8 Math?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Join now to access comprehensive lessons, practice problems, and track your mastery of each topic.
-          </p>
-          <Link 
-            href="/signup" 
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700"
-          >
-            Start Your Journey
-          </Link>
-        </div>
+        {!user && (
+          <div className="mt-12 bg-green-50 rounded-lg p-8 text-center">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              Ready to Excel in Grade 8 Math?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Join now to access comprehensive lessons, practice problems, and track your mastery of each topic.
+            </p>
+            <Link 
+              href="/signup" 
+              className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700"
+            >
+              Start Your Journey
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
