@@ -4,6 +4,24 @@ import { SupabaseClient } from '@supabase/supabase-js'
 export type SubscriptionTier = 'free' | 'premium'
 export type SubscriptionStatus = 'active' | 'past_due' | 'canceled' | 'expired'
 
+export interface SubscriptionInfo {
+  tier: SubscriptionTier
+  status: string
+  isActive: boolean
+  canAccessPremium: boolean
+  endDate?: Date
+  daysRemaining?: number
+  requiresPaymentUpdate?: boolean
+  error?: string
+}
+
+export interface FeatureAccess {
+  solutionSteps: boolean
+  unlimitedPractice: boolean
+  downloadWorksheets: boolean
+  prioritySupport: boolean
+}
+
 export interface Subscription {
   id: string
   status: SubscriptionStatus
@@ -24,7 +42,7 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
   try {
     const { data, error } = await client
       .from('profiles')
-      .select('subscription_status, current_period_end, subscription_id')
+      .select('subscription_status, subscription_end_date, stripe_subscription_id')
       .eq('id', userId)
       .single()
 
@@ -38,7 +56,7 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
       }
     }
 
-    const endDate = data.current_period_end ? new Date(data.current_period_end) : null
+    const endDate = data.subscription_end_date ? new Date(data.subscription_end_date) : null
     const now = new Date()
     
     // Check if subscription is expired
@@ -75,7 +93,7 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
 
     return {
       subscription: {
-        id: data.subscription_id,
+        id: data.stripe_subscription_id,
         status: data.subscription_status,
         currentPeriodEnd: endDate,
         cancelAtPeriodEnd: data.subscription_status === 'canceled',

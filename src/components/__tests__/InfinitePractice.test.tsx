@@ -221,32 +221,6 @@ describe('InfinitePractice', () => {
     })
   })
 
-  describe('Trial User Experience', () => {
-    it('should show trial status for trial users', () => {
-      mockUseSubscription.mockReturnValue({
-        ...mockSubscription,
-        subscription: { 
-          tier: 'trial', 
-          canAccessPremium: true,
-          trialDaysRemaining: 7
-        },
-        usage: { 
-          problemsSolved: 10, 
-          remainingProblems: null,
-          lastProblemAt: null,
-          featureAttempts: {},
-          date: '2024-01-01'
-        },
-        canSolveProblem: jest.fn().mockReturnValue(true),
-        checkFeatureAccess: jest.fn().mockReturnValue(true),
-      })
-
-      render(<InfinitePractice {...defaultProps} />)
-
-      // Trial users should have unlimited access like premium
-      expect(screen.queryByText(/problems left today/)).not.toBeInTheDocument()
-    })
-  })
 
   describe('Problem Submission Flow', () => {
     it('should increment problem count on submission', async () => {

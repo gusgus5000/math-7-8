@@ -27,10 +27,6 @@ The Math 7-8 app implements a comprehensive subscription system that tracks user
   - Advanced analytics
   - Priority support
 
-### Trial Tier
-- **Duration**: 14 days
-- **Features**: All premium features during trial period
-- **Automatic**: Converts to free tier after expiration
 
 ## Implementation Details
 
@@ -149,7 +145,6 @@ const handleSubmit = async () => {
 - `subscription-flow.e2e.ts` - Full user journey testing
   - Free user limits
   - Premium user access
-  - Trial expiration
   - Middleware protection
 
 ## Monitoring & Analytics

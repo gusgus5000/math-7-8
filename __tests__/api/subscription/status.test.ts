@@ -87,38 +87,6 @@ describe('GET /api/subscription/status', () => {
     })
   })
   
-  it('returns trial tier with days remaining', async () => {
-    const endDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days
-    
-    // Mock profile with trial subscription
-    mockSupabase.from.mockReturnValue({
-      select: jest.fn().mockReturnValue({
-        eq: jest.fn().mockReturnValue({
-          single: jest.fn().mockResolvedValue({
-            data: {
-              subscription_status: 'trialing',
-              subscription_end_date: endDate.toISOString(),
-            },
-            error: null,
-          }),
-        }),
-      }),
-    })
-    
-    const request = new NextRequest('http://localhost:3005/api/subscription/status')
-    const response = await GET(request)
-    const data = await response.json()
-    
-    expect(response.status).toBe(200)
-    expect(data).toEqual({
-      tier: 'trial',
-      status: 'trialing',
-      isActive: true,
-      canAccessPremium: true,
-      endDate: endDate.toISOString(),
-      trialDaysRemaining: 7,
-    })
-  })
   
   it('requires authentication', async () => {
     // Mock unauthenticated user

@@ -34,12 +34,12 @@ export async function POST(request: NextRequest) {
           const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
           
           const updateData: any = {
-            subscription_id: subscription.id,
+            stripe_subscription_id: subscription.id,
             subscription_status: subscription.status,
           }
           
           if (subscription.current_period_end) {
-            updateData.current_period_end = new Date(subscription.current_period_end * 1000).toISOString()
+            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
           }
           
           await supabase
@@ -57,12 +57,12 @@ export async function POST(request: NextRequest) {
         
         if ('metadata' in customer && customer.metadata?.userId) {
           const updateData: any = {
-            subscription_id: subscription.id,
+            stripe_subscription_id: subscription.id,
             subscription_status: subscription.status,
           }
           
           if (subscription.current_period_end) {
-            updateData.current_period_end = new Date(subscription.current_period_end * 1000).toISOString()
+            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
           }
           
           await supabase
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
           }
           
           if (subscription.current_period_end) {
-            updateData.current_period_end = new Date(subscription.current_period_end * 1000).toISOString()
+            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
           }
           
           await supabase

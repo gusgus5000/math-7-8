@@ -181,33 +181,6 @@ test.describe('Subscription Flow', () => {
     })
   })
 
-  test.describe('Trial User Experience', () => {
-    test('should show trial expiration warning', async ({ page }) => {
-      await page.route('**/api/subscription/status', async route => {
-        await route.fulfill({
-          status: 200,
-          contentType: 'application/json',
-          body: JSON.stringify({
-            subscription: {
-              tier: 'trial',
-              status: 'trialing',
-              canAccessPremium: true,
-              trialDaysRemaining: 3
-            },
-            features: {
-              solutionSteps: true,
-              unlimitedPractice: true
-            }
-          })
-        })
-      })
-
-      await page.goto('/dashboard')
-      
-      await expect(page.locator('text=/Trial Plan/')).toBeVisible()
-      await expect(page.locator('text=/3 days remaining/')).toBeVisible()
-    })
-  })
 
   test.describe('Middleware Protection', () => {
     test('should redirect to pricing for premium routes', async ({ page }) => {

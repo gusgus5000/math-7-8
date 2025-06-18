@@ -44,7 +44,6 @@ export function useSubscriptionDirect() {
             isActive: data.isActive,
             canAccessPremium: data.canAccessPremium,
             endDate: data.endDate ? new Date(data.endDate) : undefined,
-            trialDaysRemaining: data.trialDaysRemaining,
             daysRemaining: data.daysRemaining,
             requiresPaymentUpdate: data.requiresPaymentUpdate,
             error: data.error,
@@ -106,7 +105,6 @@ export function useSubscriptionDirect() {
         isActive: data.isActive,
         canAccessPremium: data.canAccessPremium,
         endDate: data.endDate ? new Date(data.endDate) : undefined,
-        trialDaysRemaining: data.trialDaysRemaining,
         daysRemaining: data.daysRemaining,
         requiresPaymentUpdate: data.requiresPaymentUpdate,
         error: data.error,
@@ -131,7 +129,6 @@ export function useSubscriptionDirect() {
     refresh,
     // Convenience methods
     isPremium: subscription?.tier === 'premium',
-    isTrial: subscription?.tier === 'trial',
     isFree: subscription?.tier === 'free',
     canAccessPremium: subscription?.canAccessPremium || false,
   }

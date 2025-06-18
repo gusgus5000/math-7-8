@@ -5,7 +5,7 @@ import { createServerClient } from '@supabase/ssr'
 export async function middleware(request: NextRequest) {
   // Public paths that don't require authentication
   const publicPaths = ['/', '/pricing', '/api/stripe/webhook']
-  const authPaths = ['/login', '/signup', '/forgot-password', '/reset-password', '/verify-email']
+  const authPaths = ['/login', '/signup', '/forgot-password', '/reset-password', '/verify-email', '/signup/complete']
   const pathname = request.nextUrl.pathname
   
   // Check if the current path matches any category
@@ -53,7 +53,7 @@ export async function middleware(request: NextRequest) {
     if (session && !isAuthPath && !isApiPath) {
       const { data: profile } = await supabase
         .from('profiles')
-        .select('subscription_tier, subscription_status')
+        .select('subscription_status')
         .eq('id', session.user.id)
         .single()
       
@@ -62,8 +62,14 @@ export async function middleware(request: NextRequest) {
         return response
       }
       
-      // Redirect free users to pricing page
-      if (!profile || profile.subscription_tier !== 'premium' || profile.subscription_status !== 'active') {
+      // Block users without active subscriptions
+      // Only allow 'active' or 'past_due' statuses
+      if (!profile || !['active', 'past_due'].includes(profile.subscription_status)) {
+        // For pending users (just signed up), show subscription required message
+        if (profile?.subscription_status === 'pending') {
+          return NextResponse.redirect(new URL('/subscription-required', request.url))
+        }
+        // For all other cases, redirect to pricing
         return NextResponse.redirect(new URL('/pricing?upgrade=true', request.url))
       }
     }

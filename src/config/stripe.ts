@@ -3,10 +3,6 @@ export const STRIPE_CONFIG = {
     monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY || '',
     annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_ANNUAL || '',
   },
-  trial: {
-    days: 0,
-    requiresPaymentMethod: true,
-  },
   products: {
     premium: {
       name: 'MathMinds Premium',

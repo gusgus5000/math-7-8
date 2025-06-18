@@ -73,8 +73,7 @@ export function SubscriptionManager() {
         <div>
           <h3 className="text-sm font-medium text-gray-500">Current Plan</h3>
           <p className="text-lg font-semibold capitalize">
-            {subscription.tier === 'free' ? 'Free' : 
-             subscription.tier === 'trial' ? 'Premium (Trial)' : 'Premium'}
+            {subscription.tier === 'free' ? 'Free' : 'Premium'}
           </p>
         </div>
 
@@ -85,13 +84,11 @@ export function SubscriptionManager() {
             <div className="flex items-center space-x-2">
               <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                 subscription.status === 'active' ? 'bg-green-100 text-green-800' :
-                subscription.status === 'trialing' ? 'bg-blue-100 text-blue-800' :
                 subscription.status === 'past_due' ? 'bg-yellow-100 text-yellow-800' :
                 subscription.status === 'canceled' ? 'bg-gray-100 text-gray-800' :
                 'bg-red-100 text-red-800'
               }`}>
                 {subscription.status === 'active' ? 'Active' :
-                 subscription.status === 'trialing' ? 'Trial' :
                  subscription.status === 'past_due' ? 'Past Due' :
                  subscription.status === 'canceled' ? 'Canceled' :
                  'Expired'}
@@ -106,15 +103,6 @@ export function SubscriptionManager() {
           </div>
         )}
 
-        {/* Trial Days Remaining */}
-        {subscription.trialDaysRemaining !== undefined && (
-          <div>
-            <h3 className="text-sm font-medium text-gray-500">Trial Ends</h3>
-            <p className="text-lg">
-              {subscription.trialDaysRemaining} days remaining
-            </p>
-          </div>
-        )}
 
         {/* Subscription End Date */}
         {subscription.endDate && subscription.status === 'canceled' && (
@@ -140,18 +128,6 @@ export function SubscriptionManager() {
             >
               Upgrade to Premium
             </a>
-          ) : subscription.tier === 'trial' ? (
-            <>
-              <a
-                href="/pricing"
-                className="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                Subscribe Now
-              </a>
-              <p className="text-sm text-gray-600 text-center">
-                Subscribe before your trial ends to keep access
-              </p>
-            </>
           ) : (
             <button
               onClick={handleManageSubscription}

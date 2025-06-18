@@ -11,23 +11,6 @@ import Link from 'next/link'
 
 const plans = [
   {
-    name: 'Free',
-    price: 0,
-    priceId: null,
-    description: 'Get started with basic features',
-    features: [
-      '20 practice problems per day',
-      'Basic problem types',
-      'Progress tracking',
-      'Grade-level content',
-    ],
-    limitations: [
-      'No step-by-step solutions',
-      'Limited analytics',
-      'No worksheet downloads',
-    ],
-  },
-  {
     name: 'Monthly',
     price: 100, // $1.00 in cents
     priceId: STRIPE_CONFIG.prices.monthly,
@@ -69,7 +52,7 @@ export default function PricingPage() {
 
   const handleSelectPlan = async (priceId: string) => {
     if (!user) {
-      router.push('/login?redirect=/pricing')
+      router.push('/signup')
       return
     }
 
@@ -177,13 +160,11 @@ NEXT_PUBLIC_STRIPE_PRICE_ANNUAL=price_xxxxx`}</code>
                 <p className="text-gray-600 mb-4">{plan.description}</p>
                 <div className="flex items-baseline justify-center">
                   <span className="text-4xl font-bold text-gray-900">
-                    {plan.price === 0 ? 'Free' : formatCurrency(plan.price)}
+                    {formatCurrency(plan.price)}
                   </span>
-                  {plan.price > 0 && (
-                    <span className="text-gray-500 ml-1">
-                      /{plan.name.toLowerCase() === 'annual' ? 'year' : 'month'}
-                    </span>
-                  )}
+                  <span className="text-gray-500 ml-1">
+                    /{plan.name.toLowerCase() === 'annual' ? 'year' : 'month'}
+                  </span>
                 </div>
                 {plan.savings && (
                   <p className="mt-2 text-green-600 font-semibold">
@@ -227,65 +208,56 @@ NEXT_PUBLIC_STRIPE_PRICE_ANNUAL=price_xxxxx`}</code>
                 ))}
               </ul>
 
-              {plan.priceId ? (
-                <button
-                  onClick={() => {
-                    console.log('Button clicked for plan:', plan.name)
-                    console.log('Button state:', {
-                      isStripeConfigured,
-                      loading,
-                      subscriptionLoading,
-                      subscription,
-                      priceId: plan.priceId
-                    })
-                    handleSelectPlan(plan.priceId!)
-                  }}
-                  disabled={!isStripeConfigured || loading !== null || subscriptionLoading || (subscription?.tier === 'premium' && !subscription.cancelAtPeriodEnd)}
-                  className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${
-                    plan.popular
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-gray-800 text-white hover:bg-gray-900'
-                  } disabled:opacity-50 disabled:cursor-not-allowed`}
-                >
-                  {loading === plan.priceId ? (
-                    <span className="flex items-center justify-center">
-                      <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Processing...
-                    </span>
-                  ) : subscription?.tier === 'premium' && !subscription.cancelAtPeriodEnd ? (
-                    'Current Plan'
-                  ) : !isStripeConfigured ? (
-                    'Configure Stripe'
-                  ) : (
-                    'Get Started'
-                  )}
-                </button>
-              ) : (
-                <button
-                  disabled
-                  className="w-full py-3 px-4 rounded-lg font-semibold bg-gray-200 text-gray-500 cursor-not-allowed"
-                >
-                  Current Plan
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  console.log('Button clicked for plan:', plan.name)
+                  console.log('Button state:', {
+                    isStripeConfigured,
+                    loading,
+                    subscriptionLoading,
+                    subscription,
+                    priceId: plan.priceId
+                  })
+                  handleSelectPlan(plan.priceId!)
+                }}
+                disabled={!isStripeConfigured || loading !== null || subscriptionLoading || (subscription?.tier === 'premium' && !subscription.cancelAtPeriodEnd)}
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${
+                  plan.popular
+                    ? 'bg-blue-600 text-white hover:bg-blue-700'
+                    : 'bg-gray-800 text-white hover:bg-gray-900'
+                } disabled:opacity-50 disabled:cursor-not-allowed`}
+              >
+                {loading === plan.priceId ? (
+                  <span className="flex items-center justify-center">
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Processing...
+                  </span>
+                ) : subscription?.tier === 'premium' && !subscription.cancelAtPeriodEnd ? (
+                  'Current Plan'
+                ) : !isStripeConfigured ? (
+                  'Configure Stripe'
+                ) : (
+                  user ? 'Get Started' : 'Sign Up to Start'
+                )}
+              </button>
             </div>
           ))}
         </div>

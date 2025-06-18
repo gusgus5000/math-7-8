@@ -432,3 +432,211 @@ Import trace for requested module:
 ./src/lib/supabase/server.ts
 ./src/app/api/stripe/create-checkout-session/route.ts
 <w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (100kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET /dashboard 200 in 100ms
+ ✓ Compiled /api/stripe/webhook in 307ms (879 modules)
+ ✓ Compiled in 468ms (749 modules)
+ ✓ Compiled in 39ms (144 modules)
+ ✓ Compiled in 322ms (735 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard 200 in 135ms
+ ✓ Compiled in 149ms (735 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard 200 in 129ms
+ ✓ Compiled in 158ms (735 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /dashboard 200 in 78ms
+ ✓ Compiled in 188ms (364 modules)
+ ✓ Compiled in 587ms (893 modules)
+ ✓ Compiled in 403ms (749 modules)
+ ✓ Compiled in 218ms (749 modules)
+ ✓ Compiled in 257ms (749 modules)
+ ✓ Compiled in 163ms (364 modules)
+ ✓ Compiled in 277ms (893 modules)
+ ✓ Compiled in 135ms (364 modules)
+ ✓ Compiled in 348ms (893 modules)
+ ✓ Compiled in 59ms (144 modules)
+ ✓ Compiled in 45ms (144 modules)
+ ✓ Compiled in 694ms (893 modules)
+ ✓ Compiled in 287ms (364 modules)
+ ✓ Compiled in 171ms (364 modules)
+ ✓ Compiled in 406ms (749 modules)
+ ✓ Compiled in 242ms (749 modules)
+ ✓ Compiled in 277ms (749 modules)
+ ✓ Compiled in 424ms (749 modules)
+ ✓ Compiled / in 390ms (389 modules)
+ GET / 200 in 531ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ ○ Compiling /api/auth/signout ...
+ GET / 200 in 91ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+Stripe price ID not configured
+ POST /api/stripe/create-signup-checkout 500 in 365ms
+Stripe price ID not configured
+ POST /api/stripe/create-signup-checkout 500 in 24ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/auth/signout/route.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 463ms
+ ✓ Compiled /_not-found in 323ms (976 modules)
+ ✓ Compiled in 291ms (976 modules)
+ ✓ Compiled in 224ms (750 modules)
+ GET /signup 200 in 112ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 30ms
+ ✓ Compiled /api/stripe/create-signup-checkout in 234ms (612 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 963ms
+ ○ Compiling /api/stripe/webhook ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 575ms
+ POST /api/stripe/webhook 200 in 634ms
+ POST /api/stripe/webhook 200 in 26ms
+ POST /api/stripe/webhook 200 in 25ms
+ POST /api/stripe/webhook 200 in 13ms
+ POST /api/stripe/webhook 200 in 12ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 61ms
+ GET /signup/complete?session_id=cs_test_b1ak606s8Qlhrm3rY03vn8JvVcrlxseYAUblofeLPsjvCFg3xxZZXcq6Gs 200 in 554ms
+ POST /api/stripe/webhook 200 in 16ms
+ POST /api/stripe/webhook 200 in 15ms
+ POST /api/stripe/webhook 200 in 10ms
+ POST /api/stripe/webhook 200 in 307ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 577ms
+ POST /api/stripe/verify-checkout 200 in 579ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 72ms
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 677ms
+ ✓ Compiled /login in 386ms (750 modules)
+ ✓ Compiled in 225ms (366 modules)
+ ✓ Compiled in 76ms (144 modules)
+ ✓ Compiled in 113ms (352 modules)
+ ✓ Compiled in 285ms (736 modules)
+ ✓ Compiled in 149ms (366 modules)
+ ✓ Compiled in 113ms (366 modules)
+ ✓ Compiled in 113ms (366 modules)
+ ✓ Compiled in 161ms (366 modules)
+ ✓ Compiled in 141ms (366 modules)

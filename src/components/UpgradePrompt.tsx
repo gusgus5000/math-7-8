@@ -40,25 +40,20 @@ export function UpgradePrompt({ feature, message, onClose }: UpgradePromptProps)
       
       <div className="pr-8">
         <h3 className="font-semibold text-gray-900 mb-2">
-          {subscription?.tier === 'trial' ? 'Trial Ending Soon' : 'Unlock Premium Features'}
+          Unlock Premium Features
         </h3>
         
         <p className="text-sm text-gray-600 mb-4">
           {message || defaultMessage}
         </p>
         
-        {subscription?.tier === 'trial' && subscription.trialDaysRemaining !== undefined && (
-          <p className="text-sm font-medium text-orange-600 mb-4">
-            Only {subscription.trialDaysRemaining} days left in your trial
-          </p>
-        )}
         
         <div className="space-y-2">
           <Link
             href="/pricing"
             className="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
           >
-            {subscription?.tier === 'trial' ? 'Subscribe Now' : 'View Plans'}
+            View Plans
           </Link>
           
           <button

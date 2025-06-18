@@ -163,24 +163,6 @@ describe('FeatureGate', () => {
       expect(screen.queryByText('Premium Feature')).not.toBeInTheDocument()
     })
 
-    it('should show trial expiration warning for trial users', () => {
-      mockUseSubscription.mockReturnValue({
-        ...mockUseSubscription(),
-        subscription: { 
-          tier: 'trial', 
-          canAccessPremium: true,
-          trialDaysRemaining: 3 
-        }
-      })
-
-      render(
-        <FeatureGate feature="solutionSteps">
-          <div>Premium Content</div>
-        </FeatureGate>
-      )
-
-      expect(screen.getByText('Your trial ends in 3 days')).toBeInTheDocument()
-    })
   })
 })
 

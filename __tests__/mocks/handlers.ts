@@ -107,16 +107,6 @@ export const handlers = [
       })
     }
     
-    if (userId === 'user_trial') {
-      return HttpResponse.json({
-        tier: 'trial',
-        status: 'trialing',
-        isActive: true,
-        canAccessPremium: true,
-        endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-        trialDaysRemaining: 7,
-      })
-    }
     
     if (userId === 'user_expired') {
       return HttpResponse.json({
