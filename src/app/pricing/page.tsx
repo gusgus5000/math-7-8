@@ -190,7 +190,7 @@ NEXT_PUBLIC_STRIPE_PRICE_ANNUAL=price_xxxxx`}</code>
                     <span className="ml-3 text-gray-700">{feature}</span>
                   </li>
                 ))}
-                {plan.limitations?.map((limitation, index) => (
+                {'limitations' in plan && plan.limitations?.map((limitation, index) => (
                   <li key={`limit-${index}`} className="flex items-start">
                     <svg
                       className="flex-shrink-0 h-5 w-5 text-gray-400 mt-0.5"

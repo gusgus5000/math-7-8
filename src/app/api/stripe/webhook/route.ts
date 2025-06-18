@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe/server'
 import { createClient } from '@/lib/supabase/server'
 import { headers } from 'next/headers'
+import Stripe from 'stripe'
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
@@ -14,7 +15,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No signature' }, { status: 400 })
     }
 
-    let event: any
+    let event: Stripe.Event
     try {
       event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
     } catch (err: any) {
@@ -26,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     switch (event.type) {
       case 'checkout.session.completed': {
-        const session = event.data.object
+        const session = event.data.object as Stripe.Checkout.Session
         const userId = session.metadata?.userId
         const isSignup = session.metadata?.isSignup === 'true'
         const email = session.metadata?.email || session.customer_email
@@ -34,7 +35,8 @@ export async function POST(request: NextRequest) {
         // Handle regular checkout (existing users)
         if (userId && session.subscription) {
           // Get subscription details
-          const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
+          const subscriptionId = session.subscription as string
+          const subscription = await stripe.subscriptions.retrieve(subscriptionId)
           
           const updateData: any = {
             stripe_subscription_id: subscription.id,
@@ -42,8 +44,8 @@ export async function POST(request: NextRequest) {
             plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
           }
           
-          if (subscription.current_period_end) {
-            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
+          if ('current_period_end' in subscription && subscription.current_period_end) {
+            updateData.subscription_end_date = new Date((subscription as any).current_period_end * 1000).toISOString()
           }
           
           await supabase
@@ -54,7 +56,8 @@ export async function POST(request: NextRequest) {
         // Handle signup checkout (new users)
         else if (isSignup && email && session.subscription) {
           // Get subscription details
-          const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
+          const subscriptionId = session.subscription as string
+          const subscription = await stripe.subscriptions.retrieve(subscriptionId)
           
           const updateData: any = {
             stripe_subscription_id: subscription.id,
@@ -63,8 +66,8 @@ export async function POST(request: NextRequest) {
             plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
           }
           
-          if (subscription.current_period_end) {
-            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
+          if ('current_period_end' in subscription && subscription.current_period_end) {
+            updateData.subscription_end_date = new Date((subscription as any).current_period_end * 1000).toISOString()
           }
           
           // Update by email since we don't have the user ID yet
@@ -78,7 +81,7 @@ export async function POST(request: NextRequest) {
 
       case 'customer.subscription.created':
       case 'customer.subscription.updated': {
-        const subscription = event.data.object
+        const subscription = event.data.object as Stripe.Subscription
         const customer = await stripe.customers.retrieve(subscription.customer as string)
         
         if ('metadata' in customer && customer.metadata?.userId) {
@@ -88,8 +91,8 @@ export async function POST(request: NextRequest) {
             plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
           }
           
-          if (subscription.current_period_end) {
-            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
+          if ('current_period_end' in subscription && subscription.current_period_end) {
+            updateData.subscription_end_date = new Date((subscription as any).current_period_end * 1000).toISOString()
           }
           
           await supabase
@@ -101,7 +104,7 @@ export async function POST(request: NextRequest) {
       }
 
       case 'customer.subscription.deleted': {
-        const subscription = event.data.object
+        const subscription = event.data.object as Stripe.Subscription
         const customer = await stripe.customers.retrieve(subscription.customer as string)
         
         if ('metadata' in customer && customer.metadata?.userId) {
@@ -109,8 +112,8 @@ export async function POST(request: NextRequest) {
             subscription_status: 'canceled',
           }
           
-          if (subscription.current_period_end) {
-            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
+          if ('current_period_end' in subscription && subscription.current_period_end) {
+            updateData.subscription_end_date = new Date((subscription as any).current_period_end * 1000).toISOString()
           }
           
           await supabase
