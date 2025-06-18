@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { getAuthErrorMessage, validateEmail, validatePassword } from '@/lib/auth-errors'
@@ -16,8 +16,16 @@ export default function SignupPage() {
   })
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const [checkingPayment, setCheckingPayment] = useState(true)
   const router = useRouter()
+  const searchParams = useSearchParams()
   const supabase = createClient()
+  
+  // Check if user has completed payment
+  useEffect(() => {
+    // Allow free signup without payment requirement
+    setCheckingPayment(false)
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -72,7 +80,23 @@ export default function SignupPage() {
       if (signUpError) {
         setError(getAuthErrorMessage(signUpError))
       } else if (authData.user) {
-        // Profile is created automatically by database trigger
+        // Create profile manually in case trigger doesn't exist
+        const { error: profileError } = await supabase
+          .from('profiles')
+          .insert({
+            id: authData.user.id,
+            email: authData.user.email,
+            full_name: formData.fullName,
+            subscription_tier: 'free',
+            subscription_status: 'active',
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+        
+        if (profileError && profileError.code !== '23505') { // Ignore duplicate key error
+          console.error('Error creating profile:', profileError)
+        }
+        
         // Check if email confirmation is required
         if (authData.user.identities && authData.user.identities.length === 0) {
           // Email confirmation required
@@ -88,6 +112,17 @@ export default function SignupPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  if (checkingPayment) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Verifying payment...</p>
+        </div>
+      </div>
+    )
   }
 
   return (

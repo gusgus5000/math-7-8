@@ -41,8 +41,24 @@ export default function LoginPage() {
       if (error) {
         setError(getAuthErrorMessage(error))
       } else {
-        router.push('/dashboard')
-        router.refresh()
+        // Check if user has an active subscription
+        const { data: { user } } = await supabase.auth.getUser()
+        
+        if (user) {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('subscription_status')
+            .eq('id', user.id)
+            .single()
+          
+          // If no active subscription, redirect to pricing
+          if (!profile || profile.subscription_status !== 'active') {
+            router.push('/pricing')
+          } else {
+            router.push('/dashboard')
+          }
+          router.refresh()
+        }
       }
     } catch (err) {
       setError(getAuthErrorMessage(err))

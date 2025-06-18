@@ -6,11 +6,15 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { useAuth } from '@/components/AuthProvider'
 import { getAuthErrorMessage, validatePassword } from '@/lib/auth-errors'
+import { useSubscription } from '@/contexts/SubscriptionContext'
+import { createPortalSession } from '@/lib/stripe/client'
+import { formatSubscriptionEndDate } from '@/lib/subscription'
 
 export default function SettingsPage() {
   const { user } = useAuth()
   const router = useRouter()
   const supabase = createClient()
+  const { subscription, tier, canAccessPremium, isLoading: subscriptionLoading } = useSubscription()
 
   // Profile state
   const [profile, setProfile] = useState({ fullName: '', gradeLevel: '7' })
@@ -31,6 +35,10 @@ export default function SettingsPage() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [deleteConfirmText, setDeleteConfirmText] = useState('')
   const [deleteLoading, setDeleteLoading] = useState(false)
+
+  // Subscription state
+  const [portalLoading, setPortalLoading] = useState(false)
+  const [portalError, setPortalError] = useState<string | null>(null)
 
   // Load user profile
   useEffect(() => {
@@ -173,6 +181,20 @@ export default function SettingsPage() {
       // Even if there's an error, sign out the user
       await supabase.auth.signOut()
       router.push('/')
+    }
+  }
+
+  // Manage subscription
+  const handleManageSubscription = async () => {
+    setPortalLoading(true)
+    setPortalError(null)
+
+    try {
+      const portalUrl = await createPortalSession()
+      window.location.href = portalUrl
+    } catch (error: any) {
+      setPortalError(error.message || 'Failed to open subscription management')
+      setPortalLoading(false)
     }
   }
 
@@ -339,6 +361,73 @@ export default function SettingsPage() {
               {passwordLoading ? 'Updating...' : 'Update Password'}
             </button>
           </form>
+        </div>
+
+        {/* Subscription Management */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Subscription</h2>
+          
+          {subscriptionLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-700">Current Plan</p>
+                  <p className="mt-1 text-lg font-semibold text-gray-900 capitalize">
+                    {tier}
+                  </p>
+                </div>
+                {subscription && (
+                  <div className="text-right">
+                    <p className="text-sm font-medium text-gray-700">
+                      {subscription.cancelAtPeriodEnd ? 'Ends' : 'Renews'}
+                    </p>
+                    <p className="mt-1 text-sm text-gray-900">
+                      {formatSubscriptionEndDate(subscription.currentPeriodEnd)}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+
+              {subscription?.status === 'past_due' && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                  <p className="text-sm text-red-800">
+                    Your payment is past due. Please update your payment method to continue
+                    using premium features.
+                  </p>
+                </div>
+              )}
+
+              {portalError && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                  <p className="text-sm text-red-800">{portalError}</p>
+                </div>
+              )}
+
+              <div className="flex space-x-3">
+                {canAccessPremium ? (
+                  <button
+                    onClick={handleManageSubscription}
+                    disabled={portalLoading}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  >
+                    {portalLoading ? 'Loading...' : 'Manage Subscription'}
+                  </button>
+                ) : (
+                  <Link
+                    href="/pricing"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  >
+                    Upgrade to Premium
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Delete Account */}

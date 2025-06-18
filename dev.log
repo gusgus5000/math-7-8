@@ -7,49 +7,321 @@
   - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 1171ms
- ○ Compiling /src/middleware ...
- ✓ Compiled /src/middleware in 514ms (144 modules)
+ ✓ Ready in 1053ms
+ ✓ Compiled /src/middleware in 476ms (144 modules)
  ○ Compiling / ...
- ✓ Compiled / in 2.9s (709 modules)
- GET / 200 in 3179ms
- ✓ Compiled in 327ms (341 modules)
+ ✓ Compiled / in 3s (714 modules)
+ GET / 200 in 3235ms
+ ✓ Compiled in 309ms (343 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (100kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
- ✓ Compiled /grade7 in 209ms (688 modules)
- ✓ Compiled /login in 153ms (698 modules)
- ✓ Compiled /dashboard in 152ms (704 modules)
-   Reload env: .env.local
- ✓ Compiled in 271ms (848 modules)
- ✓ Compiled /grade8 in 150ms (706 modules)
- GET / 200 in 106ms
- ✓ Compiled in 697ms (710 modules)
+ ✓ Compiled /pricing in 285ms (709 modules)
+ GET / 200 in 83ms
+ ✓ Compiled /login in 144ms (717 modules)
+ ○ Compiling /api/stripe/create-checkout-session ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ POST /api/stripe/webhook 200 in 205ms
+ POST /api/stripe/create-checkout-session 200 in 2341ms
+ POST /api/stripe/webhook 200 in 30ms
+ POST /api/stripe/webhook 200 in 20ms
+ POST /api/stripe/webhook 200 in 9ms
+ POST /api/stripe/webhook 200 in 7ms
+ POST /api/stripe/webhook 200 in 7ms
+ POST /api/stripe/webhook 200 in 23ms
+ POST /api/stripe/webhook 200 in 9ms
+Webhook error: RangeError: Invalid time value
+    at Date.toISOString (<anonymous>)
+    at POST (webpack-internal:///(rsc)/./src/app/api/stripe/webhook/route.ts:48:101)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/aiden/Coding/math-7-8/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/aiden/Coding/math-7-8/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/stripe/webhook 500 in 308ms
+ POST /api/stripe/webhook 200 in 16ms
+ POST /api/stripe/webhook 200 in 18ms
+ POST /api/stripe/webhook 200 in 657ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ GET /payment/success?session_id=cs_test_a1jnMbH8yqpDf1PGCaYMg0sOcQZqu9yJGgmxfZIywCnt3moQUzgR1FSbm6 200 in 430ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.
+ ✓ Compiled /settings in 707ms (745 modules)
+ ✓ Compiled in 144ms (360 modules)
+ ✓ Compiled in 139ms (360 modules)
+ ✓ Compiled in 199ms (360 modules)
+ ✓ Compiled in 154ms (360 modules)
+ ✓ Compiled in 334ms (731 modules)
  ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
- GET /grade8 200 in 75ms
- ✓ Compiled in 231ms (724 modules)
- ✓ Compiled in 387ms (714 modules)
- ✓ Compiled in 279ms (728 modules)
- ✓ Compiled in 112ms (351 modules)
- ✓ Compiled in 97ms (351 modules)
+Stripe Config: {
+  monthly: 'price_1RbBR5R1Kxj8B3amduJaTuFi',
+  annual: 'price_1RbBR5R1Kxj8B3amwEjEoLah',
+  isConfigured: true
+}
+ GET /pricing?upgrade=true 200 in 132ms
+Stripe Config: {
+  monthly: 'price_1RbBR5R1Kxj8B3amduJaTuFi',
+  annual: 'price_1RbBR5R1Kxj8B3amwEjEoLah',
+  isConfigured: true
+}
+ GET /pricing?upgrade=true 200 in 30ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ○ Compiling /api/stripe/create-checkout-session ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ POST /api/stripe/webhook 200 in 294ms
+ POST /api/stripe/create-checkout-session 200 in 1606ms
+ POST /api/stripe/webhook 200 in 28ms
+ POST /api/stripe/webhook 200 in 24ms
+ POST /api/stripe/webhook 200 in 54ms
+ POST /api/stripe/webhook 200 in 22ms
+ POST /api/stripe/webhook 200 in 10ms
+ POST /api/stripe/webhook 200 in 19ms
+ POST /api/stripe/webhook 200 in 19ms
+ POST /api/stripe/webhook 200 in 21ms
+ POST /api/stripe/webhook 200 in 527ms
+ POST /api/stripe/webhook 200 in 22ms
+Webhook error: RangeError: Invalid time value
+    at Date.toISOString (<anonymous>)
+    at POST (webpack-internal:///(rsc)/./src/app/api/stripe/webhook/route.ts:48:98)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+    at async eT.execute (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+    at async eT.handle (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+    at async doRender (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1366:42)
+    at async cacheEntry.responseCache.get.routeKind (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1588:28)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1496:28)
+    at async DevServer.renderPageComponent (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/base-server.js:818:17)
+    at async /home/aiden/Coding/math-7-8/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/home/aiden/Coding/math-7-8/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/home/aiden/Coding/math-7-8/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/stripe/webhook 500 in 206ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ GET /payment/success?session_id=cs_test_a1BJ6QW7uxbwgzET7qERgLES8f1F8hRSxpEt4zry0z5rHJ5lXfRPnVr7c1 200 in 323ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /dashboard 200 in 88ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ✓ Compiled /signup in 203ms (737 modules)
+ ✓ Compiled /verify-email in 193ms (743 modules)
  GET / 200 in 102ms
- GET /grade8 200 in 26ms
- ✓ Compiled /signup in 382ms (720 modules)
- GET /signup 200 in 513ms
- GET /login 200 in 27ms
- GET /grade8 200 in 43ms
- GET /grade7 200 in 20ms
- GET /grade7 200 in 24ms
- ✓ Compiled in 217ms (353 modules)
- ✓ Compiled in 533ms (730 modules)
- ✓ Compiled in 224ms (730 modules)
- ✓ Compiled in 333ms (730 modules)
- ✓ Compiled in 303ms (730 modules)
- ✓ Compiled in 122ms (353 modules)
- ✓ Compiled in 421ms (730 modules)
- ✓ Compiled in 142ms (353 modules)
- ✓ Compiled in 448ms (730 modules)
- ✓ Compiled in 218ms (730 modules)
- ✓ Compiled in 201ms (730 modules)
- ○ Compiling /api/auth/signout ...
+ GET / 200 in 28ms
+ ✓ Compiled in 585ms (749 modules)
+Stripe Config: {
+  monthly: 'price_1RbBR5R1Kxj8B3amduJaTuFi',
+  annual: 'price_1RbBR5R1Kxj8B3amwEjEoLah',
+  isConfigured: true
+}
+ GET /pricing 200 in 106ms
+ ✓ Compiled /verify-email in 175ms (389 modules)
  ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
 Critical dependency: the request of a dependency is an expression
 
@@ -60,9 +332,9 @@ Import trace for requested module:
 ./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
 ./node_modules/@supabase/ssr/dist/module/index.js
 ./src/lib/supabase/server.ts
-./src/app/api/auth/signout/route.ts
- GET / 200 in 94ms
- GET / 200 in 26ms
+./src/app/api/stripe/create-checkout-session/route.ts
+ POST /api/stripe/create-checkout-session 401 in 573ms
+ ○ Compiling /api/stripe/create-checkout-session ...
  ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
 Critical dependency: the request of a dependency is an expression
 
@@ -73,7 +345,7 @@ Import trace for requested module:
 ./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
 ./node_modules/@supabase/ssr/dist/module/index.js
 ./src/lib/supabase/server.ts
-./src/app/api/auth/signout/route.ts
+./src/app/api/stripe/create-checkout-session/route.ts
  ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
 Critical dependency: the request of a dependency is an expression
 
@@ -84,9 +356,79 @@ Import trace for requested module:
 ./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
 ./node_modules/@supabase/ssr/dist/module/index.js
 ./src/lib/supabase/server.ts
-./src/app/api/auth/signout/route.ts
- ✓ Compiled /login in 426ms (730 modules)
- ✓ Compiled in 218ms (730 modules)
- ✓ Compiled in 246ms (730 modules)
- ○ Compiling /grade8/functions ...
- ✓ Compiled /grade8/functions in 913ms (835 modules)
+./src/app/api/stripe/create-checkout-session/route.ts
+ POST /api/stripe/webhook 200 in 420ms
+ POST /api/stripe/create-checkout-session 200 in 1242ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+Stripe Config: {
+  monthly: 'price_1RbBR5R1Kxj8B3amduJaTuFi',
+  annual: 'price_1RbBR5R1Kxj8B3amwEjEoLah',
+  isConfigured: true
+}
+ GET /pricing 200 in 112ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/create-checkout-session/route.ts
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (100kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)

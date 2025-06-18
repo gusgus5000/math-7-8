@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthProvider from '@/components/AuthProvider'
+import { SubscriptionProvider } from '@/contexts/SubscriptionContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -62,12 +63,14 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} min-h-screen antialiased`}>
         <AuthProvider>
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded">
-            Skip to main content
-          </a>
-          <div id="main-content">
-            {children}
-          </div>
+          <SubscriptionProvider>
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded">
+              Skip to main content
+            </a>
+            <div id="main-content">
+              {children}
+            </div>
+          </SubscriptionProvider>
         </AuthProvider>
       </body>
     </html>

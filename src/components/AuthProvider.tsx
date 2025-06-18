@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { User } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
+import { SubscriptionProvider } from '@/contexts/SubscriptionContext'
 
 type AuthContextType = {
   user: User | null
@@ -53,7 +54,9 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
 
   return (
     <AuthContext.Provider value={{ user, loading, signOut }}>
-      {children}
+      <SubscriptionProvider user={user}>
+        {children}
+      </SubscriptionProvider>
     </AuthContext.Provider>
   )
 }
