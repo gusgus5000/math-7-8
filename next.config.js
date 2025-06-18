@@ -9,6 +9,13 @@ const nextConfig = {
   },
   compress: true,
   swcMinify: true,
+  webpack: (config, { isServer }) => {
+    // Suppress the critical dependency warning from Supabase
+    config.ignoreWarnings = [
+      { module: /@supabase\/realtime-js/ },
+    ];
+    return config;
+  },
   async headers() {
     return [
       {

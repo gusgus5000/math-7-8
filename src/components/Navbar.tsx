@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
   const { user, loading: authLoading, signOut } = useAuth()
-  const { subscription, loading: subLoading } = useSubscription()
+  const { subscription, isLoading: subLoading } = useSubscription()
   const router = useRouter()
   const loading = authLoading || subLoading
 
