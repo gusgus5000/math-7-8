@@ -11,10 +11,12 @@ import { createPortalSession } from '@/lib/stripe/client'
 import { formatSubscriptionEndDate } from '@/lib/subscription'
 
 export default function SettingsPage() {
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
   const router = useRouter()
   const supabase = createClient()
-  const { subscription, tier, canAccessPremium, isLoading: subscriptionLoading } = useSubscription()
+  const { subscription, tier, canAccessPremium, isLoading: subscriptionLoading, refresh } = useSubscription()
+  
+  console.log('[SettingsPage] Current tier:', tier, 'Loading:', subscriptionLoading)
 
   // Profile state
   const [profile, setProfile] = useState({ fullName: '', gradeLevel: '7' })
@@ -45,6 +47,13 @@ export default function SettingsPage() {
     if (user) {
       loadProfile()
       setEmail(user.email || '')
+    }
+  }, [user])
+
+  // Refresh subscription on page load when user is available
+  useEffect(() => {
+    if (user && !subscriptionLoading) {
+      refresh()
     }
   }, [user])
 
@@ -198,9 +207,18 @@ export default function SettingsPage() {
     }
   }
 
-  if (!user) {
-    router.push('/login')
-    return null
+  useEffect(() => {
+    if (!user && !loading) {
+      router.push('/login')
+    }
+  }, [user, loading, router])
+
+  if (!user || loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    )
   }
 
   return (
@@ -365,7 +383,15 @@ export default function SettingsPage() {
 
         {/* Subscription Management */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Subscription</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-semibold text-gray-900">Subscription</h2>
+            <button
+              onClick={refresh}
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Refresh Status
+            </button>
+          </div>
           
           {subscriptionLoading ? (
             <div className="flex items-center justify-center py-8">

@@ -640,3 +640,1095 @@ Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
  ✓ Compiled in 113ms (366 modules)
  ✓ Compiled in 161ms (366 modules)
  ✓ Compiled in 141ms (366 modules)
+ GET / 200 in 157ms
+ ✓ Compiled /pricing in 249ms (389 modules)
+ ✓ Compiled /api/stripe/create-signup-checkout in 371ms (611 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 1036ms
+ ○ Compiling /api/stripe/webhook ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 567ms
+ POST /api/stripe/webhook 200 in 456ms
+ POST /api/stripe/webhook 200 in 440ms
+ POST /api/stripe/webhook 200 in 360ms
+ POST /api/stripe/webhook 200 in 677ms
+ POST /api/stripe/webhook 200 in 17ms
+ POST /api/stripe/webhook 200 in 17ms
+ POST /api/stripe/webhook 200 in 23ms
+ POST /api/stripe/webhook 200 in 22ms
+ POST /api/stripe/webhook 200 in 578ms
+ POST /api/stripe/webhook 200 in 488ms
+ POST /api/stripe/webhook 200 in 23ms
+ POST /api/stripe/webhook 200 in 32ms
+ POST /api/stripe/webhook 200 in 30ms
+ GET /signup/complete?session_id=cs_test_b1hEavUErqmxW4NWlil7NuS7a7LpKpQ30e3bJ4PQTDYOTr1gfZYTlMZ3MG 200 in 110ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 529ms
+ POST /api/stripe/verify-checkout 200 in 531ms
+ POST /api/stripe/webhook 200 in 55ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ✓ Compiled /settings in 480ms (751 modules)
+ ✓ Compiled in 149ms (366 modules)
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:211:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 116ms
+ ✓ Compiled /signup in 195ms (389 modules)
+ ✓ Compiled /api/stripe/create-signup-checkout in 330ms (611 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 1011ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 272ms
+ POST /api/stripe/webhook 200 in 138ms
+ POST /api/stripe/webhook 200 in 20ms
+ POST /api/stripe/webhook 200 in 19ms
+ ○ Compiling /api/stripe/webhook ...
+ POST /api/stripe/webhook 200 in 30ms
+ POST /api/stripe/webhook 200 in 307ms
+ POST /api/stripe/webhook 200 in 12ms
+ POST /api/stripe/webhook 200 in 293ms
+ POST /api/stripe/webhook 200 in 915ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 22ms
+ POST /api/stripe/webhook 200 in 28ms
+ POST /api/stripe/webhook 200 in 16ms
+ POST /api/stripe/webhook 200 in 22ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /signup/complete?session_id=cs_test_b190JphaECnus77SVt24oZ2IjhAYFvWnnTqWz4dfvetmUKJneK155PPZAs 200 in 294ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 567ms
+ POST /api/stripe/verify-checkout 200 in 568ms
+ POST /api/stripe/webhook 200 in 48ms
+ GET /login 200 in 102ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired 200 in 623ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ✓ Compiled /api/stripe/create-signup-checkout in 218ms (610 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 887ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 298ms
+ POST /api/stripe/webhook 200 in 234ms
+ POST /api/stripe/webhook 200 in 147ms
+ POST /api/stripe/webhook 200 in 425ms
+ ○ Compiling /api/stripe/webhook ...
+ POST /api/stripe/webhook 200 in 42ms
+ POST /api/stripe/webhook 200 in 298ms
+ POST /api/stripe/webhook 200 in 13ms
+ POST /api/stripe/webhook 200 in 319ms
+ POST /api/stripe/webhook 200 in 25ms
+ POST /api/stripe/webhook 200 in 25ms
+ POST /api/stripe/webhook 200 in 939ms
+ POST /api/stripe/webhook 200 in 24ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 24ms
+ GET /signup/complete?session_id=cs_test_b1mBoMecF53mtMTMxYZIZjrN6GNvAggHFJsdm14vQo6qysjgg0MC9Pxp4J 200 in 106ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 582ms
+ POST /api/stripe/verify-checkout 200 in 590ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired 200 in 295ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 525ms
+ POST /api/stripe/webhook 200 in 76ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ✓ Compiled /api/stripe/create-signup-checkout in 276ms (610 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 932ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 177ms
+ POST /api/stripe/webhook 200 in 308ms
+ POST /api/stripe/webhook 200 in 87ms
+ ○ Compiling /api/stripe/webhook ...
+ POST /api/stripe/webhook 200 in 26ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 289ms
+ POST /api/stripe/webhook 200 in 194ms
+ POST /api/stripe/webhook 200 in 13ms
+ POST /api/stripe/webhook 200 in 682ms
+ POST /api/stripe/webhook 200 in 23ms
+ POST /api/stripe/webhook 200 in 24ms
+ POST /api/stripe/webhook 200 in 15ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 25ms
+ GET /signup/complete?session_id=cs_test_b1TVWqiIgNskRYtWDZKTjZOPFVPfqf121kW0Omlr8IJqQC9RFz8bote5gz 200 in 110ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 881ms
+ POST /api/stripe/verify-checkout 200 in 894ms
+ POST /api/stripe/webhook 200 in 37ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ✓ Compiled / in 438ms (388 modules)
+ ✓ Compiled /_not-found in 209ms (389 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 359ms
+ ✓ Compiled /forgot-password in 371ms (743 modules)
+ ✓ Compiled in 261ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 141ms
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:211:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 50ms
+ ✓ Compiled in 211ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 112ms
+ GET /login 200 in 71ms
+ ✓ Compiled /_not-found in 213ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 362ms
+ ✓ Compiled in 571ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:211:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /login 200 in 171ms
+ GET /settings 200 in 161ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 43ms
+ ✓ Compiled in 287ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 129ms
+ GET /login 200 in 44ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 27ms
+ GET /login 200 in 47ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 30ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 26ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 44ms
+ ✓ Compiled / in 371ms (388 modules)
+ GET / 200 in 522ms
+ ✓ Compiled /pricing in 247ms (393 modules)
+ ✓ Compiled /_not-found in 159ms (394 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 279ms
+ ✓ Compiled in 535ms (753 modules)
+ ✓ Compiled in 171ms (368 modules)
+ ✓ Compiled in 280ms (896 modules)
+ ○ Compiling /api/debug/subscription ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/debug/subscription/route.ts
+ GET /api/debug/subscription 200 in 1137ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/debug/subscription/route.ts
+ ✓ Compiled / in 220ms (388 modules)
+ GET / 200 in 387ms
+ ✓ Compiled /pricing in 318ms (393 modules)
+ ✓ Compiled /signup in 359ms (388 modules)
+ ✓ Compiled /api/stripe/create-signup-checkout in 372ms (610 modules)
+Creating checkout session with price ID: price_1RbBR5R1Kxj8B3amduJaTuFi
+ POST /api/stripe/create-signup-checkout 200 in 990ms
+ ○ Compiling /api/stripe/webhook ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/webhook 200 in 640ms
+ POST /api/stripe/webhook 200 in 602ms
+ POST /api/stripe/webhook 200 in 490ms
+ POST /api/stripe/webhook 200 in 383ms
+ POST /api/stripe/webhook 200 in 15ms
+ POST /api/stripe/webhook 200 in 14ms
+ POST /api/stripe/webhook 200 in 14ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 27ms
+ POST /api/stripe/webhook 200 in 658ms
+ POST /api/stripe/webhook 200 in 515ms
+ POST /api/stripe/webhook 200 in 24ms
+ POST /api/stripe/webhook 200 in 16ms
+ POST /api/stripe/webhook 200 in 1319ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /signup/complete?session_id=cs_test_b1Mar24Yk2LBbrycRSsxxK8QXpxK5V1DKUZu1fWfFZ7xAKODl8c380pvQQ 200 in 303ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ POST /api/stripe/verify-checkout 200 in 621ms
+ POST /api/stripe/verify-checkout 200 in 628ms
+ POST /api/stripe/webhook 200 in 42ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/stripe/webhook/route.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 579ms
+ ✓ Compiled /_not-found in 563ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:211:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 167ms
+ ✓ Compiled /_not-found in 162ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 301ms
+ ✓ Compiled /login in 170ms (389 modules)
+ ✓ Compiled in 443ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 159ms
+ ✓ Compiled /_not-found in 183ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 320ms
+ ✓ Compiled in 442ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 135ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 28ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 26ms
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:211:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 39ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 28ms
+ ✓ Compiled in 616ms (752 modules)
+ ✓ Compiled in 319ms (752 modules)
+ ✓ Compiled in 286ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:215:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 140ms
+ ✓ Compiled in 187ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 122ms
+ ✓ Compiled in 380ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 97ms
+ ✓ Compiled in 157ms (368 modules)
+ ✓ Compiled in 141ms (368 modules)
+ ○ Compiling /api/debug/subscription ...
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/debug/subscription/route.ts
+ GET /api/debug/subscription 401 in 696ms
+ ⚠ ./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+Critical dependency: the request of a dependency is an expression
+
+Import trace for requested module:
+./node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+./node_modules/@supabase/realtime-js/dist/main/index.js
+./node_modules/@supabase/supabase-js/dist/module/index.js
+./node_modules/@supabase/ssr/dist/module/createBrowserClient.js
+./node_modules/@supabase/ssr/dist/module/index.js
+./src/lib/supabase/server.ts
+./src/app/api/debug/subscription/route.ts
+ ✓ Compiled /_not-found in 353ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 549ms
+ReferenceError: location is not defined
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:155:66)
+    at eval (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:285:21)
+    at t.startTransition (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:161417)
+    at Object.push (webpack-internal:///(ssr)/./node_modules/next/dist/client/components/app-router.js:283:44)
+    at SettingsPage (webpack-internal:///(ssr)/./src/app/settings/page.tsx:215:16)
+    at au (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/home/aiden/Coding/math-7-8/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+ GET /settings 200 in 61ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 33ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 26ms
+ ✓ Compiled in 1026ms (753 modules)
+ ✓ Compiled in 382ms (753 modules)
+ ✓ Compiled in 344ms (753 modules)
+ ✓ Compiled in 317ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 140ms
+ ✓ Compiled /_not-found in 153ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 289ms
+ ✓ Compiled in 508ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 155ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 36ms
+ GET /settings 200 in 52ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 46ms
+ ✓ Compiled in 554ms (753 modules)
+ GET /settings 200 in 139ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 53ms
+ ✓ Compiled in 371ms (738 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 140ms
+ ✓ Compiled /_not-found in 177ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 280ms
+ ✓ Compiled in 174ms (368 modules)
+ ✓ Compiled in 172ms (368 modules)
+ ✓ Compiled in 453ms (752 modules)
+ GET /settings 200 in 130ms
+ ✓ Compiled /_not-found in 224ms (385 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 338ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 97ms
+ GET /settings 200 in 70ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 49ms
+ ✓ Compiled in 486ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 167ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 40ms
+ ✓ Compiled in 261ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 140ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 46ms
+ ✓ Compiled in 492ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 152ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 44ms
+ GET /settings 200 in 65ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 37ms
+ ✓ Compiled in 458ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 160ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 47ms
+ ✓ Compiled in 263ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 171ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 43ms
+ ✓ Compiled in 259ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 103ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 58ms
+ ✓ Compiled in 274ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 122ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 41ms
+ GET /settings 200 in 84ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 55ms
+ ✓ Compiled in 473ms (739 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /settings 200 in 159ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 42ms
+ ✓ Compiled in 759ms (753 modules)
+[SettingsPage] Current tier: free Loading: true
+ GET /settings 200 in 147ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 53ms
+ ✓ Compiled in 704ms (752 modules)
+ ⨯ src/app/layout.tsx (65:12) @ SubscriptionProvider
+ ⨯ ReferenceError: SubscriptionProvider is not defined
+    at RootLayout (./src/app/layout.tsx:125:107)
+    at stringify (<anonymous>)
+    at AsyncLocalStorage.run (node:async_hooks:338:14)
+digest: "3511860399"
+[0m [90m 63 |[39m       [33m<[39m[33mbody[39m className[33m=[39m{[32m`${inter.className} min-h-screen antialiased`[39m}[33m>[39m[0m
+[0m [90m 64 |[39m         [33m<[39m[33mAuthProvider[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 65 |[39m           [33m<[39m[33mSubscriptionProvider[39m[33m>[39m[0m
+[0m [90m    |[39m            [31m[1m^[22m[39m[0m
+[0m [90m 66 |[39m             [33m<[39m[33ma[39m href[33m=[39m[32m"#main-content"[39m className[33m=[39m[32m"sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"[39m[33m>[39m[0m
+[0m [90m 67 |[39m               [33mSkip[39m to main content[0m
+[0m [90m 68 |[39m             [33m<[39m[33m/[39m[33ma[39m[33m>[39m[0m
+ ✓ Compiled in 358ms (752 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[SettingsPage] Current tier: free Loading: true
+ GET /settings 200 in 151ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 45ms

@@ -42,10 +42,10 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
   try {
     const { data, error } = await client
       .from('profiles')
-      .select('subscription_status, subscription_end_date, stripe_subscription_id')
+      .select('subscription_status, subscription_end_date, stripe_subscription_id, plan_type')
       .eq('id', userId)
-      .single()
-
+      .maybeSingle()
+    
     if (error) throw error
 
     if (!data || !data.subscription_status) {
@@ -72,6 +72,8 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
     let tier: SubscriptionTier = 'free'
     let canAccessPremium = false
 
+    console.log('[Subscription] Status:', data.subscription_status, 'Stripe ID:', data.stripe_subscription_id)
+    
     switch (data.subscription_status) {
       case 'active':
         tier = 'premium'
@@ -89,9 +91,11 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
           canAccessPremium = true
         }
         break
+      default:
+        break
     }
 
-    return {
+    const result = {
       subscription: {
         id: data.stripe_subscription_id,
         status: data.subscription_status,
@@ -102,6 +106,9 @@ export async function getSubscriptionStatus(userId: string, supabase?: SupabaseC
       tier,
       canAccessPremium
     }
+    
+    console.log('[Subscription] Final result:', { tier, canAccessPremium, status: data.subscription_status })
+    return result
   } catch (error) {
     console.error('Error fetching subscription:', error)
     return {

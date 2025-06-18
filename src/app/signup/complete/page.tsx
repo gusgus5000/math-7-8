@@ -49,11 +49,12 @@ export default function SignupCompletePage() {
 
         const { customerId, subscriptionId } = await verifyResponse.json()
 
-        // Create the user account
+        // Create the user account with email confirmation disabled
         const { data: authData, error: signUpError } = await supabase.auth.signUp({
           email: signupData.email,
           password: signupData.password,
           options: {
+            emailRedirectTo: `${window.location.origin}/dashboard`,
             data: {
               full_name: signupData.fullName,
               grade_level: parseInt(signupData.gradeLevel),
@@ -68,6 +69,35 @@ export default function SignupCompletePage() {
         }
 
         if (authData.user) {
+          // Update the user's subscription status in the database
+          const { error: updateError } = await supabase
+            .from('profiles')
+            .update({
+              subscription_status: 'active',
+              stripe_customer_id: customerId,
+              stripe_subscription_id: subscriptionId,
+              updated_at: new Date().toISOString()
+            })
+            .eq('id', authData.user.id)
+          
+          if (updateError) {
+            console.error('Error updating subscription status:', updateError)
+          }
+          
+          // If the user email needs confirmation, try to sign them in anyway since they paid
+          if (authData.user.identities && authData.user.identities.length === 0) {
+            // Try to sign in the user
+            const { error: signInError } = await supabase.auth.signInWithPassword({
+              email: signupData.email,
+              password: signupData.password,
+            })
+            
+            if (signInError) {
+              console.error('Auto sign-in failed:', signInError)
+              // Still proceed since account was created
+            }
+          }
+          
           // Clear signup data from session storage
           sessionStorage.removeItem('signupData')
           

@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback } from 'react'
 import { User } from '@supabase/supabase-js'
 import { Subscription, SubscriptionTier, getSubscriptionStatus } from '@/lib/subscription'
 import { createClient } from '@/lib/supabase/client'
@@ -40,7 +40,9 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
   const [canAccessPremium, setCanAccessPremium] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
-  const fetchSubscription = async () => {
+  const fetchSubscription = useCallback(async () => {
+    console.log('[SubscriptionContext] fetchSubscription called with user:', user?.id)
+    
     if (!user) {
       setSubscription(null)
       setTier('free')
@@ -52,9 +54,13 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
     try {
       setIsLoading(true)
       const data = await getSubscriptionStatus(user.id)
+      
+      console.log('[SubscriptionContext] Got data:', data)
+      
       setSubscription(data.subscription)
       setTier(data.tier)
       setCanAccessPremium(data.canAccessPremium)
+      console.log('[SubscriptionContext] State updated - tier:', data.tier, 'premium:', data.canAccessPremium)
     } catch (error) {
       console.error('Failed to fetch subscription:', error)
       setSubscription(null)
@@ -63,11 +69,11 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [user])
 
   useEffect(() => {
     fetchSubscription()
-  }, [user])
+  }, [fetchSubscription])
 
   // Listen for subscription changes
   useEffect(() => {
@@ -96,7 +102,7 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [user])
+  }, [user, fetchSubscription])
 
   return (
     <SubscriptionContext.Provider

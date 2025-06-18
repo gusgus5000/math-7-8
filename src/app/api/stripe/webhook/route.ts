@@ -28,7 +28,10 @@ export async function POST(request: NextRequest) {
       case 'checkout.session.completed': {
         const session = event.data.object
         const userId = session.metadata?.userId
+        const isSignup = session.metadata?.isSignup === 'true'
+        const email = session.metadata?.email || session.customer_email
 
+        // Handle regular checkout (existing users)
         if (userId && session.subscription) {
           // Get subscription details
           const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
@@ -36,6 +39,7 @@ export async function POST(request: NextRequest) {
           const updateData: any = {
             stripe_subscription_id: subscription.id,
             subscription_status: subscription.status,
+            plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
           }
           
           if (subscription.current_period_end) {
@@ -46,6 +50,28 @@ export async function POST(request: NextRequest) {
             .from('profiles')
             .update(updateData)
             .eq('id', userId)
+        }
+        // Handle signup checkout (new users)
+        else if (isSignup && email && session.subscription) {
+          // Get subscription details
+          const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
+          
+          const updateData: any = {
+            stripe_subscription_id: subscription.id,
+            subscription_status: subscription.status,
+            stripe_customer_id: session.customer,
+            plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
+          }
+          
+          if (subscription.current_period_end) {
+            updateData.subscription_end_date = new Date(subscription.current_period_end * 1000).toISOString()
+          }
+          
+          // Update by email since we don't have the user ID yet
+          await supabase
+            .from('profiles')
+            .update(updateData)
+            .eq('email', email)
         }
         break
       }
@@ -59,6 +85,7 @@ export async function POST(request: NextRequest) {
           const updateData: any = {
             stripe_subscription_id: subscription.id,
             subscription_status: subscription.status,
+            plan_type: subscription.status === 'active' || subscription.status === 'trialing' ? 'premium' : 'free',
           }
           
           if (subscription.current_period_end) {
