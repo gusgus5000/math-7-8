@@ -6,8 +6,10 @@ A modern web application for 7th and 8th grade mathematics education, built with
 
 - **User Authentication**: Complete auth system with email/password
 - **Grade-Specific Content**: Tailored for 7th and 8th grade students
+- **Subscription System**: Stripe integration for monthly/annual subscriptions
 - **Modern Tech Stack**: Next.js 14 (App Router), TypeScript, Tailwind CSS
 - **Secure Backend**: Supabase for authentication and database
+- **Payment Processing**: Secure payment handling with Stripe
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 
 ## 📋 Prerequisites
@@ -15,6 +17,7 @@ A modern web application for 7th and 8th grade mathematics education, built with
 - Node.js 18.x or higher
 - npm or yarn package manager
 - Supabase account (free tier available at [supabase.com](https://supabase.com))
+- Stripe account (test mode) for payment processing ([stripe.com](https://stripe.com))
 
 ## 🛠️ Installation
 
@@ -31,24 +34,49 @@ A modern web application for 7th and 8th grade mathematics education, built with
 
 3. **Set up environment variables**
    
-   Create a `.env.local` file in the root directory:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   Copy the example environment file and update with your values:
+   ```bash
+   cp .env.example .env.local
    ```
 
-   You can find these values in your Supabase project settings:
-   - Go to [app.supabase.com](https://app.supabase.com)
-   - Select your project
-   - Navigate to Settings → API
-   - Copy the Project URL and anon public key
+   Update `.env.local` with your credentials:
+   ```env
+   # Supabase
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   
+   # Stripe
+   STRIPE_SECRET_KEY=sk_test_...
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+   STRIPE_WEBHOOK_SECRET=whsec_...
+   NEXT_PUBLIC_STRIPE_PRICE_MONTHLY=price_...
+   NEXT_PUBLIC_STRIPE_PRICE_ANNUAL=price_...
+   ```
 
-4. **Set up the database**
+   **Finding your credentials:**
+   - **Supabase**: Go to [app.supabase.com](https://app.supabase.com) → Project Settings → API
+   - **Stripe**: Go to [dashboard.stripe.com](https://dashboard.stripe.com) → Developers → API keys
+
+4. **Set up Stripe products**
+   
+   Run the provided script to create subscription products:
+   ```bash
+   node scripts/create-stripe-products.js
+   ```
+   
+   This will create:
+   - Monthly subscription: $1/month
+   - Annual subscription: $10/year
+   
+   The script will output the price IDs to add to your `.env.local` file.
+
+5. **Set up the database**
    
    The application will automatically create the required tables when you first sign up a user. The profile table includes:
    - User ID (linked to auth.users)
    - Full name
    - Grade level (7 or 8)
+   - Subscription status
    - Timestamps
 
 ## 🚀 Running the Application
@@ -150,6 +178,11 @@ npm test:watch      # Run tests in watch mode
 |----------|-------------|----------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL | Yes |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anonymous key | Yes |
+| `STRIPE_SECRET_KEY` | Your Stripe secret key (test mode) | Yes |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Your Stripe publishable key | Yes |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook endpoint secret | Yes |
+| `NEXT_PUBLIC_STRIPE_PRICE_MONTHLY` | Monthly subscription price ID | Yes |
+| `NEXT_PUBLIC_STRIPE_PRICE_ANNUAL` | Annual subscription price ID | Yes |
 
 ## 🚀 Deployment
 
@@ -167,6 +200,38 @@ The app can be deployed to any platform that supports Next.js:
 - AWS Amplify
 - Google Cloud Run
 - Self-hosted with Node.js
+
+## 💳 Testing Payments
+
+When testing the subscription system, use these Stripe test card numbers:
+
+### Test Card Numbers
+
+| Card Type | Number | CVC | Date | ZIP |
+|-----------|--------|-----|------|-----|
+| **Successful payment** | `4242 4242 4242 4242` | Any 3 digits | Any future date | Any 5 digits |
+| **Requires authentication** | `4000 0025 0000 3155` | Any 3 digits | Any future date | Any 5 digits |
+| **Declined (generic)** | `4000 0000 0000 0002` | Any 3 digits | Any future date | Any 5 digits |
+| **Declined (insufficient funds)** | `4000 0000 0000 9995` | Any 3 digits | Any future date | Any 5 digits |
+
+### International Test Cards
+
+| Country | Card Number |
+|---------|-------------|
+| **UK** | `4000 0082 6000 0000` |
+| **Canada** | `4000 0012 4000 0000` |
+| **Australia** | `4000 0003 6000 0000` |
+
+**Note**: These cards only work in Stripe test mode. Never use real card numbers in test mode!
+
+### Testing Webhooks Locally
+
+To test Stripe webhooks locally:
+```bash
+stripe listen --forward-to localhost:3005/api/stripe/webhook
+```
+
+Copy the webhook signing secret and add it to your `.env.local` as `STRIPE_WEBHOOK_SECRET`.
 
 ## 🤝 Contributing
 

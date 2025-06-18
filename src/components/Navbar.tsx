@@ -2,11 +2,14 @@
 
 import Link from 'next/link'
 import { useAuth } from '@/components/AuthProvider'
+import { useSubscription } from '@/contexts/SubscriptionContext'
 import { useRouter } from 'next/navigation'
 
 export default function Navbar() {
-  const { user, loading, signOut } = useAuth()
+  const { user, loading: authLoading, signOut } = useAuth()
+  const { subscription, isLoading: subLoading } = useSubscription()
   const router = useRouter()
+  const loading = authLoading || subLoading
 
   const handleSignOut = async () => {
     await signOut()
@@ -28,6 +31,22 @@ export default function Navbar() {
               <div className="animate-pulse h-8 w-20 bg-gray-200 rounded"></div>
             ) : user ? (
               <>
+                {subscription && (
+                  <div className="flex items-center mr-2">
+                    {subscription.tier === 'premium' ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Premium
+                      </span>
+                    ) : (
+                      <Link
+                        href="/pricing"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200"
+                      >
+                        Free • Upgrade
+                      </Link>
+                    )}
+                  </div>
+                )}
                 <Link
                   href="/dashboard"
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"

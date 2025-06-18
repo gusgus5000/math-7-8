@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { createClient } from '@/lib/supabase/client'
-import { getAuthErrorMessage, validateEmail, validatePassword } from '@/lib/auth-errors'
+import { validateEmail, validatePassword } from '@/lib/auth-errors'
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -17,7 +16,14 @@ export default function SignupPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  const supabase = createClient()
+  const searchParams = useSearchParams()
+  
+  useEffect(() => {
+    // Check if user canceled payment
+    if (searchParams.get('canceled') === 'true') {
+      setError('Payment was canceled. A subscription is required to create an account.')
+    }
+  }, [searchParams])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -57,38 +63,46 @@ export default function SignupPage() {
     setLoading(true)
 
     try {
-      // Sign up the user
-      const { data: authData, error: signUpError } = await supabase.auth.signUp({
+      // Store form data in session storage for after payment
+      sessionStorage.setItem('signupData', JSON.stringify({
         email: formData.email,
         password: formData.password,
-        options: {
-          data: {
-            full_name: formData.fullName,
-            grade_level: parseInt(formData.gradeLevel),
-          },
+        fullName: formData.fullName,
+        gradeLevel: formData.gradeLevel,
+      }))
+
+      // Create Stripe checkout session
+      const response = await fetch('/api/stripe/create-signup-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          email: formData.email,
+          fullName: formData.fullName,
+          gradeLevel: formData.gradeLevel,
+        }),
       })
 
-      if (signUpError) {
-        setError(getAuthErrorMessage(signUpError))
-      } else if (authData.user) {
-        // Profile is created automatically by database trigger
-        // Check if email confirmation is required
-        if (authData.user.identities && authData.user.identities.length === 0) {
-          // Email confirmation required
-          router.push('/verify-email')
-        } else {
-          // No email confirmation required or already confirmed
-          router.push('/dashboard')
-        }
-        router.refresh()
+      if (!response.ok) {
+        throw new Error('Failed to create checkout session')
+      }
+
+      const { url } = await response.json()
+
+      // Redirect to Stripe checkout
+      if (url) {
+        window.location.href = url
+      } else {
+        throw new Error('No checkout URL received')
       }
     } catch (err) {
-      setError(getAuthErrorMessage(err))
-    } finally {
+      console.error('Signup error:', err)
+      setError('Failed to start payment process. Please try again.')
       setLoading(false)
     }
   }
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -202,8 +216,13 @@ export default function SignupPage() {
               disabled={loading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Creating account...' : 'Sign up'}
+              {loading ? 'Redirecting to payment...' : 'Continue to Payment'}
             </button>
+          </div>
+          
+          <div className="text-center text-sm text-gray-600">
+            <p>A paid subscription is required to create an account.</p>
+            <p className="mt-1">You will be redirected to our secure payment page.</p>
           </div>
         </form>
       </div>

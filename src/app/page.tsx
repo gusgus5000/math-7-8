@@ -39,10 +39,10 @@ export default function HomePage() {
                     Sign In
                   </Link>
                   <Link 
-                    href="/signup" 
+                    href="/pricing" 
                     className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
                   >
-                    Sign Up
+                    Get Started
                   </Link>
                 </>
               )}
@@ -74,10 +74,10 @@ export default function HomePage() {
                 <>
                   <div className="rounded-md shadow">
                     <Link
-                      href="/signup"
+                      href="/pricing"
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
                     >
-                      Get Started Free
+                      Get Started - View Pricing
                     </Link>
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
@@ -108,7 +108,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-            <Link href="/grade7" className="group">
+            <Link href={user ? "/grade7" : "/signup"} className="group">
               <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-blue-500">
                 <h3 className="text-2xl font-semibold mb-4 text-blue-800 group-hover:text-blue-600">
                   Grade 7 Math
@@ -123,12 +123,12 @@ export default function HomePage() {
                   <li>• Geometry & Statistics</li>
                 </ul>
                 <p className="mt-4 text-blue-600 font-medium group-hover:underline">
-                  Start Learning →
+                  {user ? 'Start Learning →' : 'Sign Up to Start →'}
                 </p>
               </div>
             </Link>
 
-            <Link href="/grade8" className="group">
+            <Link href={user ? "/grade8" : "/signup"} className="group">
               <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-green-500">
                 <h3 className="text-2xl font-semibold mb-4 text-green-800 group-hover:text-green-600">
                   Grade 8 Math
@@ -143,7 +143,7 @@ export default function HomePage() {
                   <li>• Data Analysis & Probability</li>
                 </ul>
                 <p className="mt-4 text-green-600 font-medium group-hover:underline">
-                  Start Learning →
+                  {user ? 'Start Learning →' : 'Sign Up to Start →'}
                 </p>
               </div>
             </Link>
@@ -151,10 +151,10 @@ export default function HomePage() {
 
           <div className="mt-12 text-center">
             <Link 
-              href="/practice" 
+              href={user ? "/practice" : "/signup"} 
               className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
             >
-              Try Practice Problems
+              {user ? 'Try Practice Problems' : 'Sign Up to Practice'}
             </Link>
           </div>
         </div>
