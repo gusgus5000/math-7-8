@@ -2,14 +2,15 @@
 
 import { createContext, useContext, useEffect, useState, useCallback } from 'react'
 import { User } from '@supabase/supabase-js'
-import { Subscription, SubscriptionTier, getSubscriptionStatus } from '@/lib/subscription'
+import { Subscription, SubscriptionTier, SubscriptionInfo, getSubscriptionStatus } from '@/lib/subscription'
 import { createClient } from '@/lib/supabase/client'
 
 interface SubscriptionContextType {
-  subscription: Subscription | null
+  subscription: SubscriptionInfo | null
   tier: SubscriptionTier
   canAccessPremium: boolean
   isLoading: boolean
+  error: string | null
   refresh: () => Promise<void>
 }
 
@@ -18,6 +19,7 @@ const SubscriptionContext = createContext<SubscriptionContextType>({
   tier: 'free',
   canAccessPremium: false,
   isLoading: true,
+  error: null,
   refresh: async () => {},
 })
 
@@ -35,10 +37,11 @@ interface SubscriptionProviderProps {
 }
 
 export function SubscriptionProvider({ children, user }: SubscriptionProviderProps) {
-  const [subscription, setSubscription] = useState<Subscription | null>(null)
+  const [subscription, setSubscription] = useState<SubscriptionInfo | null>(null)
   const [tier, setTier] = useState<SubscriptionTier>('free')
   const [canAccessPremium, setCanAccessPremium] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const fetchSubscription = useCallback(async () => {
     console.log('[SubscriptionContext] fetchSubscription called with user:', user?.id)
@@ -48,21 +51,37 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
       setTier('free')
       setCanAccessPremium(false)
       setIsLoading(false)
+      setError(null)
       return
     }
 
     try {
       setIsLoading(true)
+      setError(null)
       const data = await getSubscriptionStatus(user.id)
       
       console.log('[SubscriptionContext] Got data:', data)
       
-      setSubscription(data.subscription)
+      // Create SubscriptionInfo object from the data
+      const subscriptionInfo: SubscriptionInfo | null = data.subscription ? {
+        tier: data.tier,
+        status: data.subscription.status,
+        isActive: data.subscription.status === 'active' || data.subscription.status === 'past_due',
+        canAccessPremium: data.canAccessPremium,
+        endDate: data.subscription.currentPeriodEnd || undefined,
+        currentPeriodEnd: data.subscription.currentPeriodEnd || undefined,
+        daysRemaining: data.subscription.currentPeriodEnd ? Math.max(0, Math.ceil((new Date(data.subscription.currentPeriodEnd).getTime() - Date.now()) / (1000 * 60 * 60 * 24))) : undefined,
+        requiresPaymentUpdate: data.subscription.status === 'past_due',
+        cancelAtPeriodEnd: data.subscription.cancelAtPeriodEnd
+      } : null
+      
+      setSubscription(subscriptionInfo)
       setTier(data.tier)
       setCanAccessPremium(data.canAccessPremium)
       console.log('[SubscriptionContext] State updated - tier:', data.tier, 'premium:', data.canAccessPremium)
     } catch (error) {
       console.error('Failed to fetch subscription:', error)
+      setError(error instanceof Error ? error.message : 'Failed to load subscription')
       setSubscription(null)
       setTier('free')
       setCanAccessPremium(false)
@@ -111,6 +130,7 @@ export function SubscriptionProvider({ children, user }: SubscriptionProviderPro
         tier,
         canAccessPremium,
         isLoading,
+        error,
         refresh: fetchSubscription,
       }}
     >

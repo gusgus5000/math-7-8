@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import FeatureGate, { InlineFeatureGate } from '../FeatureGate'
+import FeatureGate from '../FeatureGate'
 import { useSubscription } from '@/contexts/SubscriptionContext'
 
 // Mock the subscription hook
@@ -20,52 +20,47 @@ describe('FeatureGate', () => {
   })
 
   describe('when loading', () => {
-    it('should show loading state', () => {
+    it('should show loading spinner', () => {
       mockUseSubscription.mockReturnValue({
-        loading: true,
-        checkFeatureAccess: jest.fn(),
         subscription: null,
-        features: null,
-        limits: null,
-        usage: null,
+        tier: 'free',
+        canAccessPremium: false,
+        isLoading: true,
         error: null,
-        refreshSubscription: jest.fn(),
-        canSolveProblem: jest.fn(),
-        incrementProblemCount: jest.fn(),
-        incrementFeatureAttempt: jest.fn(),
+        refresh: jest.fn(),
       })
 
-      render(
-        <FeatureGate feature="solutionSteps">
+      const { container } = render(
+        <FeatureGate>
           <div>Premium Content</div>
         </FeatureGate>
       )
 
-      expect(screen.getByTestId(/animate-pulse/)).toBeInTheDocument()
+      expect(container.querySelector('.animate-spin')).toBeInTheDocument()
       expect(screen.queryByText('Premium Content')).not.toBeInTheDocument()
     })
   })
 
-  describe('when user has access', () => {
+  describe('when user has premium access', () => {
     beforeEach(() => {
       mockUseSubscription.mockReturnValue({
-        loading: false,
-        checkFeatureAccess: jest.fn().mockReturnValue(true),
-        subscription: { tier: 'premium', canAccessPremium: true },
-        features: null,
-        limits: null,
-        usage: null,
+        subscription: {
+          tier: 'premium',
+          status: 'active',
+          isActive: true,
+          canAccessPremium: true
+        },
+        tier: 'premium',
+        canAccessPremium: true,
+        isLoading: false,
         error: null,
-        refreshSubscription: jest.fn(),
-        canSolveProblem: jest.fn(),
-        incrementProblemCount: jest.fn(),
-        incrementFeatureAttempt: jest.fn(),
+        refresh: jest.fn(),
       })
     })
 
     it('should render children when user has access', () => {
       render(
-        <FeatureGate feature="solutionSteps">
+        <FeatureGate>
           <div>Premium Content</div>
         </FeatureGate>
       )
@@ -73,73 +68,37 @@ describe('FeatureGate', () => {
       expect(screen.getByText('Premium Content')).toBeInTheDocument()
       expect(screen.queryByText('Premium Feature')).not.toBeInTheDocument()
     })
-
-    it('should check the correct feature', () => {
-      const checkFeatureAccess = jest.fn().mockReturnValue(true)
-      mockUseSubscription.mockReturnValue({
-        ...mockUseSubscription(),
-        checkFeatureAccess
-      })
-
-      render(
-        <FeatureGate feature="progressTracking">
-          <div>Content</div>
-        </FeatureGate>
-      )
-
-      expect(checkFeatureAccess).toHaveBeenCalledWith('progressTracking')
-    })
   })
 
-  describe('when user does not have access', () => {
+  describe('when user does not have premium access', () => {
     beforeEach(() => {
       mockUseSubscription.mockReturnValue({
-        loading: false,
-        checkFeatureAccess: jest.fn().mockReturnValue(false),
-        subscription: { tier: 'free', canAccessPremium: false },
-        features: null,
-        limits: null,
-        usage: null,
+        subscription: null,
+        tier: 'free',
+        canAccessPremium: false,
+        isLoading: false,
         error: null,
-        refreshSubscription: jest.fn(),
-        canSolveProblem: jest.fn(),
-        incrementProblemCount: jest.fn(),
-        incrementFeatureAttempt: jest.fn(),
+        refresh: jest.fn(),
       })
     })
 
     it('should show upgrade prompt by default', () => {
       render(
-        <FeatureGate feature="solutionSteps">
+        <FeatureGate>
           <div>Premium Content</div>
         </FeatureGate>
       )
 
       expect(screen.queryByText('Premium Content')).not.toBeInTheDocument()
       expect(screen.getByText('Premium Feature')).toBeInTheDocument()
-      expect(screen.getByText(/Step-by-step solutions is a premium feature/)).toBeInTheDocument()
-      expect(screen.getByText('Upgrade to Premium')).toBeInTheDocument()
-    })
-
-    it('should show custom message when provided', () => {
-      render(
-        <FeatureGate 
-          feature="solutionSteps"
-          customMessage="Get detailed solutions with premium"
-        >
-          <div>Premium Content</div>
-        </FeatureGate>
-      )
-
-      expect(screen.getByText('Get detailed solutions with premium')).toBeInTheDocument()
+      expect(screen.getByText('This feature is only available for premium subscribers.')).toBeInTheDocument()
+      expect(screen.getByText('Upgrade Now')).toBeInTheDocument()
+      expect(screen.getByText('Upgrade Now')).toHaveAttribute('href', '/pricing')
     })
 
     it('should render fallback when provided', () => {
       render(
-        <FeatureGate 
-          feature="solutionSteps"
-          fallback={<div>Free tier content</div>}
-        >
+        <FeatureGate fallback={<div>Free tier content</div>}>
           <div>Premium Content</div>
         </FeatureGate>
       )
@@ -149,131 +108,61 @@ describe('FeatureGate', () => {
       expect(screen.queryByText('Premium Feature')).not.toBeInTheDocument()
     })
 
-    it('should hide upgrade prompt when showUpgradePrompt is false', () => {
-      render(
-        <FeatureGate 
-          feature="solutionSteps"
-          showUpgradePrompt={false}
-        >
+    it('should render nothing when showUpgradePrompt is false', () => {
+      const { container } = render(
+        <FeatureGate showUpgradePrompt={false}>
           <div>Premium Content</div>
         </FeatureGate>
       )
 
+      expect(container.firstChild).toBeNull()
       expect(screen.queryByText('Premium Content')).not.toBeInTheDocument()
       expect(screen.queryByText('Premium Feature')).not.toBeInTheDocument()
     })
-
-  })
-})
-
-describe('InlineFeatureGate', () => {
-  const mockUseSubscription = useSubscription as jest.MockedFunction<typeof useSubscription>
-
-  beforeEach(() => {
-    jest.clearAllMocks()
   })
 
-  it('should show children when user has access', () => {
-    mockUseSubscription.mockReturnValue({
-      loading: false,
-      checkFeatureAccess: jest.fn().mockReturnValue(true),
-      subscription: null,
-      features: null,
-      limits: null,
-      usage: null,
-      error: null,
-      refreshSubscription: jest.fn(),
-      canSolveProblem: jest.fn(),
-      incrementProblemCount: jest.fn(),
-      incrementFeatureAttempt: jest.fn(),
+  describe('error handling', () => {
+    it('should handle when subscription context has error', () => {
+      mockUseSubscription.mockReturnValue({
+        subscription: null,
+        tier: 'free',
+        canAccessPremium: false,
+        isLoading: false,
+        error: 'Failed to load subscription',
+        refresh: jest.fn(),
+      })
+
+      render(
+        <FeatureGate>
+          <div>Premium Content</div>
+        </FeatureGate>
+      )
+
+      // When there's an error, it should default to not having access
+      expect(screen.queryByText('Premium Content')).not.toBeInTheDocument()
+      expect(screen.getByText('Premium Feature')).toBeInTheDocument()
     })
-
-    render(
-      <InlineFeatureGate feature="solutionSteps">
-        <span>Unlock</span>
-      </InlineFeatureGate>
-    )
-
-    expect(screen.getByText('Unlock')).toBeInTheDocument()
   })
 
-  it('should show lock icon when user lacks access', () => {
-    mockUseSubscription.mockReturnValue({
-      loading: false,
-      checkFeatureAccess: jest.fn().mockReturnValue(false),
-      subscription: null,
-      features: null,
-      limits: null,
-      usage: null,
-      error: null,
-      refreshSubscription: jest.fn(),
-      canSolveProblem: jest.fn(),
-      incrementProblemCount: jest.fn(),
-      incrementFeatureAttempt: jest.fn(),
+  describe('feature prop', () => {
+    it('should default to premium feature', () => {
+      mockUseSubscription.mockReturnValue({
+        subscription: null,
+        tier: 'free',
+        canAccessPremium: false,
+        isLoading: false,
+        error: null,
+        refresh: jest.fn(),
+      })
+
+      render(
+        <FeatureGate>
+          <div>Content</div>
+        </FeatureGate>
+      )
+
+      // Currently the component only supports 'premium' feature
+      expect(screen.getByText('Premium Feature')).toBeInTheDocument()
     })
-
-    const { container } = render(
-      <InlineFeatureGate feature="solutionSteps">
-        <span>Unlock</span>
-      </InlineFeatureGate>
-    )
-
-    expect(screen.queryByText('Unlock')).not.toBeInTheDocument()
-    expect(container.querySelector('svg')).toBeInTheDocument()
-  })
-
-  it('should use custom locked icon when provided', () => {
-    mockUseSubscription.mockReturnValue({
-      loading: false,
-      checkFeatureAccess: jest.fn().mockReturnValue(false),
-      subscription: null,
-      features: null,
-      limits: null,
-      usage: null,
-      error: null,
-      refreshSubscription: jest.fn(),
-      canSolveProblem: jest.fn(),
-      incrementProblemCount: jest.fn(),
-      incrementFeatureAttempt: jest.fn(),
-    })
-
-    render(
-      <InlineFeatureGate 
-        feature="solutionSteps"
-        lockedIcon={<span data-testid="custom-icon">🔒</span>}
-      >
-        <span>Unlock</span>
-      </InlineFeatureGate>
-    )
-
-    expect(screen.getByTestId('custom-icon')).toBeInTheDocument()
-  })
-
-  it('should show tooltip on hover', () => {
-    mockUseSubscription.mockReturnValue({
-      loading: false,
-      checkFeatureAccess: jest.fn().mockReturnValue(false),
-      subscription: null,
-      features: null,
-      limits: null,
-      usage: null,
-      error: null,
-      refreshSubscription: jest.fn(),
-      canSolveProblem: jest.fn(),
-      incrementProblemCount: jest.fn(),
-      incrementFeatureAttempt: jest.fn(),
-    })
-
-    const { container } = render(
-      <InlineFeatureGate 
-        feature="solutionSteps"
-        tooltip="Upgrade to see solutions"
-      >
-        <span>Unlock</span>
-      </InlineFeatureGate>
-    )
-
-    const wrapper = container.querySelector('span[title]')
-    expect(wrapper).toHaveAttribute('title', 'Upgrade to see solutions')
   })
 })

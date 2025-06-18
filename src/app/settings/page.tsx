@@ -412,7 +412,7 @@ export default function SettingsPage() {
                       {subscription.cancelAtPeriodEnd ? 'Ends' : 'Renews'}
                     </p>
                     <p className="mt-1 text-sm text-gray-900">
-                      {formatSubscriptionEndDate(subscription.currentPeriodEnd)}
+                      {formatSubscriptionEndDate(subscription.currentPeriodEnd || null)}
                     </p>
                   </div>
                 )}

@@ -12,6 +12,8 @@ export interface SubscriptionInfo {
   endDate?: Date
   daysRemaining?: number
   requiresPaymentUpdate?: boolean
+  cancelAtPeriodEnd?: boolean
+  currentPeriodEnd?: Date
   error?: string
 }
 
