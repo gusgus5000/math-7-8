@@ -16,6 +16,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate plan type
+    if (planType && !['monthly', 'annual'].includes(planType)) {
+      return NextResponse.json(
+        { error: 'Invalid plan type. Must be "monthly" or "annual"' },
+        { status: 400 }
+      )
+    }
+
     // Get the price ID based on plan type
     const priceId = planType === 'annual' 
       ? process.env.NEXT_PUBLIC_STRIPE_PRICE_ANNUAL 

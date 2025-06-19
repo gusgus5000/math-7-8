@@ -7,6 +7,8 @@ process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'test-anon-key'
 process.env.STRIPE_SECRET_KEY = 'sk_test_mock_key'
 process.env.STRIPE_WEBHOOK_SECRET = 'whsec_test_mock_secret'
 process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = 'pk_test_mock_key'
+process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY = 'price_test_monthly'
+process.env.NEXT_PUBLIC_STRIPE_PRICE_ANNUAL = 'price_test_annual'
 
 // MSW Setup - Temporarily disabled due to Node.js compatibility issues
 // We'll use manual mocks for API routes instead
