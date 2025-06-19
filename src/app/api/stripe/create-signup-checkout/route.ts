@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, fullName, gradeLevel } = await request.json()
+    const { email, fullName, gradeLevel, planType = 'monthly' } = await request.json()
 
     if (!email || !fullName || !gradeLevel) {
       return NextResponse.json(
@@ -16,18 +16,20 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Get the price ID from environment variables based on plan
-    const priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY
+    // Get the price ID based on plan type
+    const priceId = planType === 'annual' 
+      ? process.env.NEXT_PUBLIC_STRIPE_PRICE_ANNUAL 
+      : process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY
     
     if (!priceId) {
-      console.error('Stripe price ID not configured. Expected NEXT_PUBLIC_STRIPE_PRICE_MONTHLY')
+      console.error(`Stripe price ID not configured for ${planType} plan`)
       return NextResponse.json(
         { error: 'Payment configuration error. Price ID not found.' },
         { status: 500 }
       )
     }
 
-    console.log('Creating checkout session with price ID:', priceId)
+    console.log(`Creating checkout session for ${planType} plan with price ID:`, priceId)
 
     // Create checkout session with metadata for account creation
     const session = await stripe.checkout.sessions.create({
