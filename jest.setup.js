@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 // Polyfill for TextEncoder/TextDecoder
 import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder
-global.TextDecoder = TextDecoder as any
+global.TextDecoder = TextDecoder
 
 // Mock environment variables for tests
 process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://test.supabase.co'
