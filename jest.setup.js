@@ -6,6 +6,36 @@ import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
+// Mock Request/Response for API route tests
+if (!global.Request) {
+  global.Request = class Request {
+    constructor(url, init) {
+      this.url = url
+      this.method = init?.method || 'GET'
+      this.headers = new Map(Object.entries(init?.headers || {}))
+      this.body = init?.body
+    }
+    
+    async json() {
+      return JSON.parse(this.body)
+    }
+  }
+}
+
+if (!global.Response) {
+  global.Response = class Response {
+    constructor(body, init) {
+      this.body = body
+      this.status = init?.status || 200
+      this.headers = new Map(Object.entries(init?.headers || {}))
+    }
+    
+    async json() {
+      return typeof this.body === 'string' ? JSON.parse(this.body) : this.body
+    }
+  }
+}
+
 // Mock environment variables for tests
 process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://test.supabase.co'
 process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'test-anon-key'
