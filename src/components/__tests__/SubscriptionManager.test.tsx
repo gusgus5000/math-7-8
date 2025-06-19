@@ -16,20 +16,25 @@ describe('SubscriptionManager', () => {
   const mockFetch = fetch as jest.MockedFunction<typeof fetch>
 
   // Store original location
-  const originalLocation = window.location
+  let originalLocation: Location
 
   beforeEach(() => {
     jest.clearAllMocks()
-    // Mock window.location.href
+    // Save and mock window.location
+    originalLocation = window.location
     delete (window as any).location
     ;(window as any).location = {
-      href: 'http://localhost:3000/dashboard'
+      href: 'http://localhost:3000/dashboard',
+      assign: jest.fn(),
+      replace: jest.fn(),
+      reload: jest.fn(),
+      toString: () => 'http://localhost:3000/dashboard'
     }
   })
 
   afterEach(() => {
     // Restore original location
-    window.location = originalLocation
+    jest.clearAllMocks()
   })
 
   describe('when loading', () => {

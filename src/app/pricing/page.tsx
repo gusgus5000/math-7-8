@@ -52,6 +52,8 @@ export default function PricingPage() {
 
   const handleSelectPlan = async (priceId: string) => {
     if (!user) {
+      // Store the selected plan for signup flow
+      sessionStorage.setItem('selectedPlanType', priceId === STRIPE_CONFIG.prices.annual ? 'annual' : 'monthly');
       router.push('/signup')
       return
     }

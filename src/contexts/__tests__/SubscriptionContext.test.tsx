@@ -71,17 +71,13 @@ describe('SubscriptionContext', () => {
     it('should load subscription data without error', async () => {
       mockGetSubscriptionStatus.mockResolvedValueOnce({
         subscription: {
-          id: 'sub_123',
-          user_id: 'test-user-id',
-          stripe_subscription_id: 'stripe_123',
-          stripe_customer_id: 'cus_123',
+          id: 'stripe_123',
           status: 'active',
-          current_period_end: new Date('2024-12-31'),
-          subscription_tier: 'premium',
-          created_at: new Date('2024-01-01'),
-          updated_at: new Date('2024-01-01')
+          currentPeriodEnd: new Date('2024-12-31'),
+          cancelAtPeriodEnd: false,
+          tier: 'premium' as const
         },
-        tier: 'premium',
+        tier: 'premium' as const,
         canAccessPremium: true
       })
 
