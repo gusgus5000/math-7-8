@@ -41,7 +41,7 @@ describe('Stripe Utility Functions', () => {
     })
 
     it('throws error for invalid currency', () => {
-      expect(() => formatCurrency(1000, 'invalid' as any)).toThrow('Unsupported currency')
+      expect(() => formatCurrency(1000, 'invalid' as any)).toThrow('Invalid currency code')
     })
   })
 
