@@ -50,9 +50,9 @@ export default function PricingPage() {
   // Check if Stripe is configured
   const isStripeConfigured = !!(STRIPE_CONFIG.prices.monthly && STRIPE_CONFIG.prices.annual)
 
-  const handleSelectPlan = async (priceId: string) => {
+  const handleSelectPlan = async (priceId: string, planName: string) => {
     if (!user) {
-      router.push('/signup')
+      router.push(`/signup?plan=${planName.toLowerCase()}`)
       return
     }
 
@@ -202,7 +202,7 @@ NEXT_PUBLIC_STRIPE_PRICE_ANNUAL=price_xxxxx`}</code>
                     subscription,
                     priceId: plan.priceId
                   })
-                  handleSelectPlan(plan.priceId!)
+                  handleSelectPlan(plan.priceId!, plan.name)
                 }}
                 disabled={!isStripeConfigured || loading !== null || subscriptionLoading || (subscription?.tier === 'premium' && !subscription.cancelAtPeriodEnd)}
                 className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${

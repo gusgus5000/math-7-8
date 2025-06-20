@@ -71,6 +71,9 @@ export default function SignupPage() {
         gradeLevel: formData.gradeLevel,
       }))
 
+      // Get the plan from URL params (default to monthly if not specified)
+      const plan = searchParams.get('plan') || 'monthly'
+
       // Create Stripe checkout session
       const response = await fetch('/api/stripe/create-signup-checkout', {
         method: 'POST',
@@ -81,6 +84,7 @@ export default function SignupPage() {
           email: formData.email,
           fullName: formData.fullName,
           gradeLevel: formData.gradeLevel,
+          plan: plan,
         }),
       })
 
